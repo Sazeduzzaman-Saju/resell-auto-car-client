@@ -1,11 +1,12 @@
 import React from 'react';
 import useWebTitle from '../../hooks/useWebTItle/useWebTitle';
+import Banner from './Banner/Banner';
 
 const Home = () => {
     useWebTitle('Home')
     return (
         <div>
-            <h1>This is Home</h1>
+            <Banner></Banner>
         </div>
     );
 };

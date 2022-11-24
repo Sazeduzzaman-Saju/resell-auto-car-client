@@ -12,6 +12,7 @@ const Header = () => {
     const mainMenu = <>
         <Nav.Link as={NavLink} to={'/home'}>Home</Nav.Link>
         <Nav.Link as={NavLink} to={'/carsCategories'}>Categories</Nav.Link>
+        <Nav.Link as={NavLink} to={'/blog'}>Blog</Nav.Link>
         <Nav.Link as={NavLink} to={'/contact'}>Contact</Nav.Link>
         <Nav.Link as={NavLink} to={'/about'}>About</Nav.Link>
         <Nav.Link as={NavLink} to={'/others'}>Others</Nav.Link>
@@ -33,7 +34,9 @@ const Header = () => {
         <div className='primary-bg'>
             <Navbar collapseOnSelect expand="lg" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Final Project</Navbar.Brand>
+                    <Navbar.Brand as={NavLink} to={'/home'}>
+                        <img src="https://i.ibb.co/mG8Dn0Z/logo.png" alt="" />
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">

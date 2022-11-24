@@ -1,0 +1,20 @@
+.accordion-button {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  border: 0;
+  border-radius: 0;
+  overflow-anchor: none;
+  transition: var(--bs-accordion-transition);
+}
+
+.accordion-button:not(.collapsed) {
+  color: white !important;
+  background-color: var(--primary-color) !important;
+  box-shadow: none !important;
+}
+
+button:focus:not(:focus-visible) {
+  color: white !important;
+  background-color: var(--primary-color) !important;
+  box-shadow: none !important;
+}
