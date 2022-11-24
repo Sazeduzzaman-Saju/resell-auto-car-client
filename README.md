@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# AutoCar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### About AutoCar
 
-## Available Scripts
+\*\* This is PhotoService .This is For Only Service Reletad Web App.Which Serve Many types of Services When you open the project you will see some little helpful Services.Try it hope you like it.All Services are just for demo purpose.
+It would be nice to start without delay .It will be very convenient to read the code.
+So hope you would like & Enjoy🤠
 
-In the project directory, you can run:
+## ⚖️ I Use In This Project.
 
-### `npm start`
+- HTML.
+- CSS.
+- Tailwind.
+- DaisyUI.
+- React Js.
+- React Image Zoom
+- React Icons
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📙 Need To do.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Make sure you have Node.js & Code Editor.
+- Clone or Download Quiz Camp WebApp.
+- Open the project in Vs Code / windows or terminal
+- Simple Install npm Package.
+- Runs the app in the development mode.\
+  Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- and live site link [https://photo-serve-59058.web.app/]
 
-### `npm test`
+## ⚙️ Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Open Windows Terminal Or Vs Code Terminal
 
-### `npm run build`
+- Install the dependencies with npm package.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ```bash
+  npm install
+  ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- if need vs code then type and hit enter and it will open automatic.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  ```bash
+  npm code .
+  ```
 
-### `npm run eject`
+- Run the Project, and follow the instruction shown. Enjoy 😺
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  ```bash
+  npm start
+  ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Builds the app for production to the `build` folder.\
+  It correctly bundles React in production mode and optimizes the build for the best performance
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  ```bash
+  npm run build
+  ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🤠 About Me
 
-## Learn More
+[![Sazeduzzaman Saju](https://avatars.githubusercontent.com/u/107988750?s=400&u=e6802371dcb0d4b678987f132665517ca9293b94&v=4)]
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+\*\*Sazeduzzaman Saju, a highly passionate front-end developer 😊
