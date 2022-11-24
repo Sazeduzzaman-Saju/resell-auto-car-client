@@ -11,7 +11,7 @@ const Header = () => {
     const { user, signOutUser } = useContext(AuthContext)
     const mainMenu = <>
         <Nav.Link as={NavLink} to={'/home'}>Home</Nav.Link>
-        <Nav.Link as={NavLink} to={'/categories'}>Categories</Nav.Link>
+        <Nav.Link as={NavLink} to={'/carsCategories'}>Categories</Nav.Link>
         <Nav.Link as={NavLink} to={'/contact'}>Contact</Nav.Link>
         <Nav.Link as={NavLink} to={'/about'}>About</Nav.Link>
         <Nav.Link as={NavLink} to={'/others'}>Others</Nav.Link>

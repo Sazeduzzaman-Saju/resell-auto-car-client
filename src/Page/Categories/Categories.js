@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import CategoriesDetails from './CategoriesDetails/CategoriesDetails';
 
 const Categories = () => {
-    const [categories, setCategories] = useState([]);
-    console.log(categories)
+    const [carsName, setCarName] = useState([]);
+
     useEffect(() => {
-        fetch('categories.json')
+        fetch('http://localhost:5000/carCategories')
             .then(res => res.json())
-            .then(data => setCategories(data))
+            .then(data => setCarName(data))
     }, [])
     return (
         <div>
@@ -16,18 +16,23 @@ const Categories = () => {
                 <div className='row'>
                     <div className='col-lg-3 col-md-3 col-sm-1'>
                         <h3 className='mt-3 mb-5'>Car Categories</h3>
+                        {/* className='btns' style={{ width: "100%" }} */}
                         {
-                            categories.map(category => <p key={category.id}>
-                                <Link to={`/category/${category.id}`}>{category.name}</Link>
+                            carsName.map(name => <p key={name._id}>
+                                <Link to={`/car-categories/${name.category_id}`}>
+                                    <button className='btns' style={{ width: "100%" }}>{name.name}</button>
+                                </Link>
+
                             </p>)
                         }
                     </div>
-                    <div className='col-lg-9 col-md-9 col-sm-1'>
+                    <div className='col-lg-9 col-md-9 col-sm-1 ' >
                         <CategoriesDetails></CategoriesDetails>
+                        <Outlet></Outlet>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -1,12 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Categories from "../Page/Categories/Categories";
-import CategoriesDetails from "../Page/Categories/CategoriesDetails/CategoriesDetails";
 import ErrorPage from "../Page/ErrorPage/ErrorPage";
 import Home from "../Page/Home/Home";
 import Login from "../Page/Login/Login";
 import SignUp from "../Page/SignUp/SignUp";
-import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -19,16 +17,12 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/categories',
+                path: '/carsCategories',
                 element: <Categories></Categories>
             },
             {
-                path: '/categories/:id',
-                element: <CategoriesDetails></CategoriesDetails>
-            },
-            {
                 path: '/home',
-                element: <PrivateRoutes><Home></Home></PrivateRoutes>
+                element: <Home></Home>
             },
             {
                 path: '/login',
