@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import CategoriesDetails from './CategoriesDetails/CategoriesDetails';
 
 const Categories = () => {
     const [categories, setCategories] = useState([]);
@@ -22,7 +23,7 @@ const Categories = () => {
                         }
                     </div>
                     <div className='col-lg-9 col-md-9 col-sm-1'>
-                        <h1>data</h1>
+                        <CategoriesDetails></CategoriesDetails>
                     </div>
                 </div>
             </div>
