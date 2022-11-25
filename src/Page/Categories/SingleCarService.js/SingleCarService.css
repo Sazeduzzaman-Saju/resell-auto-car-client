@@ -1,0 +1,91 @@
+.car-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.service-car-img {
+  height: 180px !important;
+}
+.card {
+  background-color: #fff;
+  position: relative;
+  border: 0px;
+}
+
+.percent {
+  width: 63px;
+  height: 30px;
+  position: absolute;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  border-bottom-left-radius: 15px;
+  padding: 10px;
+}
+
+.card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-inner {
+  padding: 20px;
+}
+
+.price span {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.details {
+  border-radius: 20px;
+
+  width: 110px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wishlist {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--primary-color);
+  background: #fdeddc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s all;
+  font-size: 15px;
+}
+
+.wishlist:hover {
+  color: #fff;
+  background: var(--primary-color);
+}
+
+.cart {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--primary-color);
+  background: #fdeddc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s all;
+  font-size: 15px;
+}
+.cart:hover {
+  color: #fff;
+  background: var(--primary-color);
+}

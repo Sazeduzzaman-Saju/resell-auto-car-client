@@ -12,7 +12,7 @@ const CarCategoryLayout = () => {
             <div className='container'>
                 <div className='row'>
                     <div className='col-lg-3 col-md-3 col-sm-1 mt-5 '>
-                        <h3 className='mb-5 text-center'>Choose Your Car</h3>
+                        <h3 className='mb-5 text-center primary-bg text-white p-1 rounded'>Product Category</h3>
                         <SideCategory></SideCategory>
                     </div>
                     <div className='col-lg-9 col-md-9 col-sm-1 ' >

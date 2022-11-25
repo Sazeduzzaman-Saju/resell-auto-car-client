@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 import './Header.css';
+import { FaHeart } from 'react-icons/fa';
 
 
 const Header = () => {
@@ -19,6 +20,8 @@ const Header = () => {
     </>
     const userMenu = <>
         <Nav.Link as={NavLink} to={'/login'}>Login</Nav.Link>
+        
+
     </>
 
 

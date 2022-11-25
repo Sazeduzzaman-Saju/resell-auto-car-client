@@ -3,6 +3,8 @@ import CarCategoryLayout from "../layout/CarCategoryLayout/CarCategoryLayout";
 import DashBoardLayout from "../layout/DashBoardLayout";
 import Main from "../layout/Main";
 import Blog from "../Page/Blog/Blog";
+import AddToCart from "../Page/Categories/AddToCart/AddToCart";
+import CarDetails from "../Page/Categories/CarDetails/CarDetails";
 import SideHome from "../Page/Categories/SideHome/SideHome";
 import DashBoard from "../Page/DashBoard/DashBoard";
 import User from "../Page/DashBoard/User/User";
@@ -53,6 +55,16 @@ const router = createBrowserRouter([
                 element: <CategoryData></CategoryData>,
                 loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             },
+            {
+                path: '/carsCategories/carDetails/:id',
+                element: <CarDetails></CarDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
+            },
+            {
+                path: '/carsCategories/add-to-cart/:id',
+                element: <AddToCart></AddToCart>,
+                loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
+            }
         ]
     },
     {

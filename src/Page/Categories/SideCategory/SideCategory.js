@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { FaLongArrowAltRight } from 'react-icons/fa';
+import './SideCategory.css'
 
 const SideCategory = () => {
     const [category, setCategory] = useState([]);
@@ -16,9 +18,16 @@ const SideCategory = () => {
         <div>
             {
                 category.map(name => <p key={name._id}>
-                    <Link to={`/carsCategories/category/${name.slug}`}>
-                        <button className='btns' style={{ width: "100%" }}>{name.name}</button>
-                    </Link>
+                    <NavLink to={`/carsCategories/category/${name.slug}`} style={{ textDecoration: 'none' }}>
+
+                        <div className='btn from-top d-flex justify-content-between menu-link'>
+                            <div>
+                                <span class="">{name.name}</span>
+                            </div>
+                            <span><FaLongArrowAltRight></FaLongArrowAltRight></span>
+                        </div>
+
+                    </NavLink>
                 </p>)
             }
         </div>
