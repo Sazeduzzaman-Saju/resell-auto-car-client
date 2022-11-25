@@ -28,7 +28,6 @@ const SingleCarService = ({ carService }) => {
                         <div class="d-flex flex-row">
                             <span class="wishlist"><FaHeart></FaHeart></span>
                             <Link to={`/carsCategories/add-to-cart/${_id}`}>
-
                                 <span class="cart"><FaShoppingCart></FaShoppingCart></span>
                             </Link>
                         </div>

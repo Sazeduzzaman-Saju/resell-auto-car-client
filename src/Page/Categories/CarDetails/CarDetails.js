@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import PrimaryButton from '../../../comps/PrimaryButton/PrimaryButton';
 import { AuthContext } from '../../../context/AuthProvider';
 import { FaLocationArrow, FaPhone } from 'react-icons/fa';
@@ -8,7 +8,7 @@ import { FaLocationArrow, FaPhone } from 'react-icons/fa';
 const CarDetails = () => {
     const singleService = useLoaderData();
     const { user } = useContext(AuthContext)
-    const { slug, position, title, img, description, price, gear_type, condition, mileage, wheel, model_id, negotiable_price } = singleService
+    const { _id, slug, position, title, img, description, price, gear_type, condition, mileage, wheel, model_id, negotiable_price } = singleService
     return (
         <div>
 
@@ -17,8 +17,14 @@ const CarDetails = () => {
                     <div className='col-lg-8 col-md-8 col-sm-1'>
                         <h3>{title}</h3>
                         <img src={img} className="img-fluid" alt="" />
-                        <p>{description}</p>
-                        <PrimaryButton>Report Post</PrimaryButton>
+                        <p className="mt-2 mb-5">{description}</p>
+                        <div className='d-flex justify-content-between'>
+                            <PrimaryButton>Report Post</PrimaryButton>
+                            <Link to={`/carsCategories/add-to-cart/${_id}`} style={{ textDecoration: 'none' }}>
+                                <PrimaryButton >Buy Now</PrimaryButton>
+                            </Link>
+
+                        </div>
                     </div>
                     <div className='col-lg-4 col-md-4 col-sm-1'>
                         <div className='shadow-lg p-3'>
