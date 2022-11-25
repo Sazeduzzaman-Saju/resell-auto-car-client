@@ -1,11 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
+import CarCategoryLayout from "../layout/CarCategoryLayout/CarCategoryLayout";
 import DashBoardLayout from "../layout/DashBoardLayout";
 import Main from "../layout/Main";
 import Blog from "../Page/Blog/Blog";
-import Categories from "../Page/Categories/Categories";
+import SideHome from "../Page/Categories/SideHome/SideHome";
 import DashBoard from "../Page/DashBoard/DashBoard";
 import User from "../Page/DashBoard/User/User";
 import ErrorPage from "../Page/ErrorPage/ErrorPage";
+import CategoryData from "../Page/Home/CategoryData/CategoryData";
 import Home from "../Page/Home/Home";
 import Login from "../Page/Login/Login";
 import SignUp from "../Page/SignUp/SignUp";
@@ -25,10 +27,6 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/carsCategories',
-                element: <Categories></Categories>
-            },
-            {
                 path: '/blog',
                 element: <Blog></Blog>
             },
@@ -39,6 +37,21 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+        ]
+    },
+    {
+        path: '/carsCategories',
+        element: <CarCategoryLayout></CarCategoryLayout>,
+        children: [
+            {
+                path: '/carsCategories',
+                element: <SideHome></SideHome>
+            },
+            {
+                path: '/carsCategories/category/:id',
+                element: <CategoryData></CategoryData>,
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             },
         ]
     },
