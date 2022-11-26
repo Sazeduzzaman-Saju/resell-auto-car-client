@@ -13,6 +13,7 @@ import CategoryData from "../Page/Home/CategoryData/CategoryData";
 import Home from "../Page/Home/Home";
 import Login from "../Page/Login/Login";
 import SignUp from "../Page/SignUp/SignUp";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -62,14 +63,14 @@ const router = createBrowserRouter([
             },
             {
                 path: '/carsCategories/add-to-cart/:id',
-                element: <AddToCart></AddToCart>,
+                element: <PrivateRoutes><AddToCart></AddToCart></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
             }
         ]
     },
     {
         path: '/dashboard',
-        element: <DashBoardLayout></DashBoardLayout>,
+        element: <PrivateRoutes><DashBoardLayout></DashBoardLayout></PrivateRoutes>,
         children: [
             {
                 path: '/dashboard',

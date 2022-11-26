@@ -17,18 +17,23 @@ const Header = () => {
     const handleShow = () => setShow(true);
 
     const { user, signOutUser } = useContext(AuthContext);
-    const mainMenu = <>
-        <Nav.Link as={NavLink} to={'/home'}>Home</Nav.Link>
-        <Nav.Link as={NavLink} to={'/carsCategories'}>Categories</Nav.Link>
-        <Nav.Link as={NavLink} to={'/blog'}>Blog</Nav.Link>
-        <Nav.Link as={NavLink} to={'/contact'}>Contact</Nav.Link>
-        <Nav.Link as={NavLink} to={'/about'}>About</Nav.Link>
-        <Nav.Link as={NavLink} to={'/dashboard'}>Dashboard</Nav.Link>
-    </>
-    const userMenu = <>
-        <Nav.Link as={NavLink} to={'/login'}>Login</Nav.Link>
+    const mainMenu =
+        <>
+            <Nav.Link as={NavLink} to={'/home'}>Home</Nav.Link>
+            <Nav.Link as={NavLink} to={'/carsCategories'}>Categories</Nav.Link>
+            <Nav.Link as={NavLink} to={'/blog'}>Blog</Nav.Link>
+            <Nav.Link as={NavLink} to={'/contact'}>Contact</Nav.Link>
+            <Nav.Link as={NavLink} to={'/about'}>About</Nav.Link>
+            {
+                user?.email ?
+                    <><Nav.Link as={NavLink} to={'/dashboard'}>Dashboard</Nav.Link></> : <></>
+            }
+        </>
+    const userMenu =
+        <>
+            <Nav.Link as={NavLink} to={'/login'}>Login</Nav.Link>
 
-    </>
+        </>
 
 
     const handleSignOut = () => {

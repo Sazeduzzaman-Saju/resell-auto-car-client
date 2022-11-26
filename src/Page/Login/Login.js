@@ -6,17 +6,23 @@ import { AuthContext } from '../../context/AuthProvider';
 import GoogleProvider from '../../comps/GoogleProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useWebTitle from '../../hooks/useWebTItle/useWebTitle';
+import useUserToken from '../../hooks/useWebTItle/useUserToken/useUserToken';
 
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { loginUser } = useContext(AuthContext)
     const [loginError, setLoginError] = useState('');
+    const [loginEmail, setLoginEmail] = useState('');
+    const [token] = useUserToken(loginEmail)
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/';
 
+    if (token) {
+        navigate(from, { replace: true });
+    }
     const handleLogIn = (data) => {
         setLoginError('')
         console.log(data)
@@ -24,11 +30,13 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setLoginEmail(data.email)
                 reset('');
-                navigate(from, { replace: true })
-
             })
-            .catch(err => console.error(err))
+            .catch(err => {
+                console.log(err.message)
+                setLoginError(err.message)
+            })
     }
 
     useWebTitle('Login')

@@ -5,7 +5,7 @@ main {
 .sidebar {
   background: var(--primary-color);
   color: #fff;
-  height: 100vh;
+  height: auto;
   width: 200px;
   transition: all 0.5s;
 }

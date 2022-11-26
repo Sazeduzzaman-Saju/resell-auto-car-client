@@ -5,11 +5,7 @@ import './DashBoardLayout.css';
 import {
     FaTh,
     FaBars,
-    FaUserAlt,
-    FaRegChartBar,
-    FaCommentAlt,
-    FaShoppingBag,
-    FaThList
+    FaUserAlt
 } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Footer from '../Page/Shared/Footer/Footer';
@@ -30,11 +26,13 @@ const DashBoardLayout = () => {
                             </div>
                         </div>
 
-                        <Link to={'/dashboard/allUsers'} className="link" activeclassName="active">
-                            <div className="icon">
-                                <FaTh />
-                            </div>
-                            <div style={{ display: isOpen ? "block" : "none" }} className="link_text">Product</div>
+                        <Link to='/dashboard' className="link" activeclassName="active">
+                            <div className="icon"><FaTh /></div>
+                            <div style={{ display: isOpen ? "block" : "none" }} className="link_text">My Booking</div>
+                        </Link>
+                        <Link to='/dashboard/allUsers' className="link" activeclassName="active">
+                            <div className="icon"><FaUserAlt /></div>
+                            <div style={{ display: isOpen ? "block" : "none" }} className="link_text">All User</div>
                         </Link>
                     </div>
                     <main>
