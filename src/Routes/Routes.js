@@ -55,17 +55,17 @@ const router = createBrowserRouter([
             {
                 path: '/carsCategories/category/:id',
                 element: <CategoryData></CategoryData>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://autocar-two.vercel.app/category/${params.id}`)
             },
             {
                 path: '/carsCategories/carDetails/:id',
                 element: <CarDetails></CarDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
+                loader: ({ params }) => fetch(`https://autocar-two.vercel.app/cars/${params.id}`)
             },
             {
                 path: '/carsCategories/add-to-cart/:id',
                 element: <PrivateRoutes><AddToCart></AddToCart></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
+                loader: ({ params }) => fetch(`https://autocar-two.vercel.app/cars/${params.id}`)
             }
         ]
     },

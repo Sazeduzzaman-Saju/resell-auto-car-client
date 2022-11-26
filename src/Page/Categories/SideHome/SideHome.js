@@ -9,7 +9,7 @@ import './SideHome.css';
 const SideHome = () => {
     const { loading } = useContext(AuthContext);
 
-    const url = 'http://localhost:5000/cars';
+    const url = 'https://autocar-two.vercel.app/cars';
     const { data: cars = [] } = useQuery({
         queryKey: ['cars'],
         queryFn: async () => {

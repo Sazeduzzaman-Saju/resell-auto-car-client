@@ -21,7 +21,7 @@ const SingleCarService = ({ carService }) => {
             email: user?.email
         }
 
-        fetch(`http://localhost:5000/wishlist`, {
+        fetch(`https://autocar-two.vercel.app/wishlist`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -43,7 +43,7 @@ const Header = () => {
             })
             .catch(err => console.error(err))
     }
-    const url = `http://localhost:5000/wishlist?email=${user?.email}`;
+    const url = `https://autocar-two.vercel.app/wishlist?email=${user?.email}`;
     const { data: wisListItems = [] } = useQuery(
         ['wishList', user?.email],
         async () => {
@@ -90,7 +90,7 @@ const Header = () => {
                                             <Offcanvas.Body>
                                                 <div className="container">
                                                     <div className='row'>
-                                                        {wisListItems.map(items => <div
+                                                        {wisListItems.length && wisListItems.map(items => <div
                                                             key={items._id}>
                                                             <div className="card mb-3" >
                                                                 <div className="row ">

@@ -6,7 +6,7 @@ import './HotCollection.css'
 const AdvertisedItems = () => {
     const [category, setCategory] = useState([]);
     console.log(category)
-    const url = 'http://localhost:5000/carCategories'
+    const url = 'https://autocar-two.vercel.app/carCategories'
     useEffect(() => {
         axios.get(url)
             .then((response) => {

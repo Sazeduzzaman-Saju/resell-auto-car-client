@@ -6,7 +6,7 @@ import Table from 'react-bootstrap/Table';
 const DashBoard = () => {
     const { user } = useContext(AuthContext);
     console.log(user)
-    const url = `http://localhost:5000/wishlist?email=${user?.email}`;
+    const url = `https://autocar-two.vercel.app/wishlist?email=${user?.email}`;
     const { data: wishlist = [] } = useQuery({
         queryKey: ['wishList', user?.email],
         queryFn: async () => {

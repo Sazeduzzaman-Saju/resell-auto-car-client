@@ -7,7 +7,7 @@ import './SideCategory.css'
 const SideCategory = () => {
     const [category, setCategory] = useState([]);
 
-    const url = 'http://localhost:5000/carCategories'
+    const url = 'https://autocar-two.vercel.app/carCategories'
     useEffect(() => {
         axios.get(url)
             .then((response) => {
