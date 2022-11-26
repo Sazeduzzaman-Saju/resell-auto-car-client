@@ -1,0 +1,104 @@
+.hot-collection {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+.hot-box {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s;
+}
+.hot-box:hover {
+  background-color: var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color);
+}
+.hot-box img {
+  width: 100%;
+  height: auto;
+  transform: rotate(0deg) scale(1);
+  transition: all 0.8s;
+}
+.hot-box:hover img {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+.hot-box .hot-box-content {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.hot-box .hot-box-content .content {
+  overflow: hidden;
+}
+.hot-box .title {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 3px 0;
+  transform: translateY(250%);
+  transition: all 0.6s ease 0s;
+}
+.hot-box .post {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+  margin: 0 0 10px;
+  display: block;
+  transform: translateY(250%);
+  transition: all 0.6s ease 0s;
+}
+.hot-box:hover .title,
+.hot-box:hover .post {
+  transform: translateY(0);
+}
+.hot-box .icon {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow: hidden;
+}
+.hot-box .icon li {
+  margin: 0 4px;
+  display: inline-block;
+  transform: translateY(-150%);
+  transition: all 0.6s ease 0s;
+}
+.hot-box:hover .icon li {
+  transform: translateY(0);
+}
+.hot-box .icon li a {
+  color: #fff;
+  font-size: 16px;
+  line-height: 34px;
+  width: 35px;
+  height: 35px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.3s ease 0s;
+}
+.hot-box .icon li a:hover {
+  color: #fff;
+  background: var(--primary-color);
+  transform: rotate(360deg);
+}
+@media only screen and (max-width: 600px) {
+  .hot-collection {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+}
+@media only screen and (max-width: 990px) {
+  .hot-box {
+    margin: 0 0 30px;
+  }
+}

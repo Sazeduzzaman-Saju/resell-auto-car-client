@@ -1,0 +1,32 @@
+[
+  {
+    "category_id": 1,
+    "slug": "toyota",
+    "brand_img": "https://i.ibb.co/51Sb7HM/toyota-logos-brands-logotypes-0.png",
+    "name": "Toyota Brand Car"
+  },
+  {
+    "category_id": 2,
+    "slug": "bmw",
+    "brand_img": "https://i.ibb.co/j8rtbbN/01-bmw-Brand-Lane-logo.png",
+    "name": "BMW Brand Car"
+  },
+  {
+    "category_id": 3,
+    "slug": "ford",
+    "brand_img": "https://i.ibb.co/dmmTG1N/cars-ford-wallpaper-preview.jpg",
+    "name": "Ford Brand Car"
+  },
+  {
+    "category_id": 4,
+    "slug": "jeep",
+    "brand_img": "https://i.ibb.co/85WHbGr/jeeplogo4.jpg",
+    "name": "Jeep Brand Car"
+  },
+  {
+    "category_id": 5,
+    "slug": "jaguar",
+    "brand_img": "https://i.ibb.co/zZh2ZYs/logo-jaguar-logo-jaguar-car-color-vector-format-aviable-ai-124808872.jpg",
+    "name": "Jaguar Brand Car"
+  }
+]

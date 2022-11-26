@@ -9,7 +9,8 @@
 .card {
   background-color: #fff;
   position: relative;
-  border: 0px;
+  border: 0px !important;
+  box-shadow: var(--box-shadow);
 }
 
 .percent {

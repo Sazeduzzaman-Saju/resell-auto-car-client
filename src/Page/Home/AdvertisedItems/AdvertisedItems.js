@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import CategoryData from '../CategoryData/CategoryData';
+import './HotCollection.css'
 
 const AdvertisedItems = () => {
     const [category, setCategory] = useState([]);
@@ -16,28 +16,30 @@ const AdvertisedItems = () => {
 
     return (
         <div>
-            <div className='container'>
+            <div className='container mt-5'>
                 <div className='border-start'>
                     <div className='text-start mt-5 ms-2' data-aos="fade-left" data-aos-duration="3000">
-                        <h1 class="main-block__title primary-color "><strong>Advertised Items</strong></h1>
-                        <h6>Hot Collection</h6>
+                        <h1 class="main-block__title primary-color "><strong>Hot Collection {category.length}</strong></h1>
                     </div>
                 </div>
             </div>
             <div className='container'>
                 <div className='row'>
-                    <div className='col-lg-2 col-md-2 col-sm-1'>
-                        <h1>{category.length}</h1>
+                    <div className='hot-collection'>
                         {
                             category.map(name => <p key={name._id}>
-                                <Link to={`/category/${name.slug}`}>
-                                    <button className='btns' style={{ width: "100%" }}>{name.name}</button>
+                                <Link to={`/carsCategories/category/${name.slug}`}>
+                                    <div class="hot-box">
+                                        <img src={name.brand_img} alt='' style={{ height: "150px" }} />
+                                        <div class="hot-box-content">
+                                            <div class="content">
+                                                <h3 class="title">{name.name}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </Link>
                             </p>)
                         }
-                    </div>
-                    <div className='col-lg-10 col-md-10 col-sm-1'>
-                        {/* <CategoryData></CategoryData> */}
                     </div>
                 </div>
             </div>

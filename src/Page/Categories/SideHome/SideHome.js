@@ -8,6 +8,7 @@ import './SideHome.css';
 
 const SideHome = () => {
     const { loading } = useContext(AuthContext);
+
     const url = 'http://localhost:5000/cars';
     const { data: cars = [] } = useQuery({
         queryKey: ['cars'],

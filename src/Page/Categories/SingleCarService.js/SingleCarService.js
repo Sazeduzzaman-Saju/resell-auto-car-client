@@ -1,12 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './SingleCarService.css';
 import { FaShoppingCart, FaHeart } from 'react-icons/fa';
 import PrimaryButton from '../../../comps/PrimaryButton/PrimaryButton';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider';
 
 
 const SingleCarService = ({ carService }) => {
+    const { user } = useContext(AuthContext)
     const { _id, title, img, condition, slug, price, negotiable_price } = carService;
+    console.log(_id, title, price, img)
+
+
+    const handleWishListSubmit = () => {
+        const addWishList = {
+            wishListIid: _id,
+            product_img: img,
+            product_title: title,
+            price: price,
+            email: user?.email
+        }
+
+        fetch(`http://localhost:5000/wishlist`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addWishList)
+        }).then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => console.error(error))
+
+    }
     return (
         <div class="">
             <div class="card border-0 shadow-lg">
@@ -26,7 +53,7 @@ const SingleCarService = ({ carService }) => {
                             <PrimaryButton>Details</PrimaryButton>
                         </NavLink>
                         <div class="d-flex flex-row">
-                            <span class="wishlist"><FaHeart></FaHeart></span>
+                            <span onClick={handleWishListSubmit} class="wishlist"><FaHeart></FaHeart></span>
                             <Link to={`/carsCategories/add-to-cart/${_id}`}>
                                 <span class="cart"><FaShoppingCart></FaShoppingCart></span>
                             </Link>
