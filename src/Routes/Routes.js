@@ -13,6 +13,7 @@ import CategoryData from "../Page/Home/CategoryData/CategoryData";
 import Home from "../Page/Home/Home";
 import Login from "../Page/Login/Login";
 import SignUp from "../Page/SignUp/SignUp";
+import AdminRoutes from "./AdminRoutes/AdminRoutes";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
@@ -78,7 +79,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allUsers',
-                element: <User></User>
+                element: <AdminRoutes><User></User></AdminRoutes>
             }
         ]
     }

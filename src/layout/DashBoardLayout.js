@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../Page/Shared/Header/Header';
 import './DashBoardLayout.css';
@@ -9,9 +9,13 @@ import {
 } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Footer from '../Page/Shared/Footer/Footer';
+import { AuthContext } from '../context/AuthProvider';
+import useAdminProvide from '../hooks/useAdminProvide/useAdminProvide';
 
 const DashBoardLayout = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { user } = useContext(AuthContext);
+    const [isAdmin] = useAdminProvide(user?.email)
     const toggle = () => setIsOpen(!isOpen);
     return (
         <div>
@@ -30,10 +34,12 @@ const DashBoardLayout = () => {
                             <div className="icon"><FaTh /></div>
                             <div style={{ display: isOpen ? "block" : "none" }} className="link_text">My Booking</div>
                         </Link>
-                        <Link to='/dashboard/allUsers' className="link" activeclassName="active">
-                            <div className="icon"><FaUserAlt /></div>
-                            <div style={{ display: isOpen ? "block" : "none" }} className="link_text">All User</div>
-                        </Link>
+                        {isAdmin &&
+                            <Link to='/dashboard/allUsers' className="link" activeclassName="active">
+                                <div className="icon"><FaUserAlt /></div>
+                                <div style={{ display: isOpen ? "block" : "none" }} className="link_text">All User</div>
+                            </Link>
+                        }
                     </div>
                     <main>
                         <Outlet></Outlet>

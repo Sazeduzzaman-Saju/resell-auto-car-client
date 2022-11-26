@@ -43,17 +43,22 @@ const Header = () => {
             })
             .catch(err => console.error(err))
     }
-    const url = 'http://localhost:5000/wishlist';
-    const { data: wisListItems = [], refetch } = useQuery({
-        queryKey: ['wishlist'],
-        queryFn: async () => {
-            const res = await fetch(url)
+    const url = `http://localhost:5000/wishlist?email=${user?.email}`;
+    const { data: wisListItems = [] } = useQuery(
+        ['wishList', user?.email],
+        async () => {
+            const res = await fetch(url, {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('access_token')}`
+                }
+            });
             const data = await res.json();
-            refetch()
             return data;
-        }
-    })
-    console.log(wisListItems)
+        }, {
+        refetchInterval: 1000,
+    }
+
+    )
     return (
         <div className='primary-bg'>
             <Navbar collapseOnSelect expand="lg" variant="dark">
@@ -71,12 +76,12 @@ const Header = () => {
                                 <>
                                     <Nav.Link as={NavLink} onClick={handleSignOut}>SignOut</Nav.Link>
                                     <div>
-                                        <button className='rounded-circle' onClick={handleShow}>
-                                            <span class="position-relative end-50 start-100 translate-middle badge rounded-pill bg-danger">
+                                        <Link className='' onClick={handleShow}>
+                                            <span className="position-relative end-50 start-100 translate-middle badge rounded-pill bg-danger">
                                                 3
                                             </span>
-                                            <FaCartPlus className='bg-primary fs-6'></FaCartPlus>
-                                        </button>
+                                            <FaCartPlus className='text-white'></FaCartPlus>
+                                        </Link>
 
                                         <Offcanvas show={show} onHide={handleClose}>
                                             <Offcanvas.Header closeButton>
@@ -87,18 +92,18 @@ const Header = () => {
                                                     <div className='row'>
                                                         {wisListItems.map(items => <div
                                                             key={items._id}>
-                                                            <div class="card mb-3" >
-                                                                <div class="row ">
-                                                                    <div class="col-md-4 border-0">
-                                                                        <img src={items.product_img} class="img-fluid rounded" alt="..." style={{ height: "80px" }} />
+                                                            <div className="card mb-3" >
+                                                                <div className="row ">
+                                                                    <div className="col-md-4 border-0">
+                                                                        <img src={items.product_img} className="img-fluid rounded" alt="..." style={{ height: "80px" }} />
                                                                     </div>
-                                                                    <div class="col-md-8 border-0">
+                                                                    <div className="col-md-8 border-0">
                                                                         <div className="card-body d-flex justify-content-between align-items-center p-0 pt-4">
-                                                                            <p class=" fs-6">{items.product_title}</p>
-                                                                            <p class=" fs-6">
+                                                                            <p className=" fs-6">{items.product_title}</p>
+                                                                            <p className=" fs-6">
                                                                                 ${items.price}
                                                                             </p>
-                                                                            <p class=" ">
+                                                                            <p className=" ">
                                                                                 <button className='cart'>
                                                                                     <FaTrash></FaTrash>
                                                                                 </button>
@@ -113,7 +118,7 @@ const Header = () => {
                                             </Offcanvas.Body>
                                         </Offcanvas>
                                     </div>
-                                    <img className='img-fluid rounded-circle' style={{ width: '30px', height: "30px" }} src={user?.photoURL} alt="" />
+                                    <img className='img-fluid rounded-circle ms-3' style={{ width: '30px', height: "30px" }} src={user?.photoURL} alt="" />
                                 </>
                                 :
                                 <>

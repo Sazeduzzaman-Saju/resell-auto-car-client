@@ -2,25 +2,31 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Table from 'react-bootstrap/Table';
 import { FaCheckCircle } from "react-icons/fa";
+import toast from 'react-hot-toast';
 
 const User = () => {
-    const { data: users = [] } = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/users');
             const data = await res.json();
-            return data
+            return data;
         }
     })
 
     const handleAdmin = id => {
-        alert('button clicked')
         fetch(`http://localhost:5000/users/admin/${id}`, {
-            method: 'PUT'
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access_token')}`
+            }
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                if (data.modifiedCount > 0) {
+                    toast.success('Admin Making Done')
+                    refetch('')
+                }
             })
     }
     return (
@@ -47,7 +53,8 @@ const User = () => {
                         <td>{user.name}</td>
                         <td>{user.email}</td>
                         <td>
-                            {user?.role ? <FaCheckCircle className='text-success'></FaCheckCircle> : <button onClick={() => handleAdmin(user._id)} className='m-btn'><small>Make Admin</small></button>}
+                            {user?.role !== 'admin' ? <><button onClick={() => handleAdmin(user._id)} className='m-btn'><small>Make Admin</small></button></> : <><FaCheckCircle className='text-success'></FaCheckCircle></>}
+
                         </td>
                         <td>
                             <button className='m-btn'><small>Remvoe</small></button>

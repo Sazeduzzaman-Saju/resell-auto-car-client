@@ -19,7 +19,7 @@ const DashBoard = () => {
             return data;
         }
     })
-    
+
     return (
         <div>
             <div>
@@ -36,7 +36,7 @@ const DashBoard = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {wishlist.map((list, i) => <tr
+                        {wishlist.length && wishlist?.map((list, i) => <tr
                             key={user._id}
                             className=""
                         >
