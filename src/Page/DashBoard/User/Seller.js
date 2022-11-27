@@ -4,12 +4,15 @@ import Table from 'react-bootstrap/Table';
 import { FaCheckCircle } from "react-icons/fa";
 import toast from 'react-hot-toast';
 
-const User = () => {
+
+const Seller = () => {
+    // const { user } = useContext(AuthContext)
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('https://autocar-two.vercel.app/users');
+            const res = await fetch(`https://autocar-two.vercel.app/user/seller`);
             const data = await res.json();
+            console.log(data)
             return data;
         }
     })
@@ -31,7 +34,7 @@ const User = () => {
     }
     return (
         <div>
-            <h1>All User</h1>
+            <h1>All Seller</h1>
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -41,10 +44,11 @@ const User = () => {
                         <th>Email</th>
                         <th>Admin</th>
                         <th>Remove</th>
+                        <th>Role</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user, i) => <tr
+                    {users.length && users?.map((user, i) => <tr
                         key={user._id}
                         className=""
                     >
@@ -59,6 +63,9 @@ const User = () => {
                         <td>
                             <button className='m-btn'><small>Remvoe</small></button>
                         </td>
+                        <td>
+                            <button className='m-btn'><small>{user?.role}</small></button>
+                        </td>
                     </tr>
                     )}
                 </tbody>
@@ -67,4 +74,4 @@ const User = () => {
     );
 };
 
-export default User;
+export default Seller;

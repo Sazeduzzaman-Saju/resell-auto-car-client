@@ -6,8 +6,10 @@ import Blog from "../Page/Blog/Blog";
 import AddToCart from "../Page/Categories/AddToCart/AddToCart";
 import CarDetails from "../Page/Categories/CarDetails/CarDetails";
 import SideHome from "../Page/Categories/SideHome/SideHome";
+import Buyer from "../Page/DashBoard/Buyer/Buyer";
 import DashBoard from "../Page/DashBoard/DashBoard";
-import User from "../Page/DashBoard/User/User";
+import ReportedPost from "../Page/DashBoard/ReportedPost/ReportedPost";
+import Seller from "../Page/DashBoard/User/Seller";
 import ErrorPage from "../Page/ErrorPage/ErrorPage";
 import CategoryData from "../Page/Home/CategoryData/CategoryData";
 import Home from "../Page/Home/Home";
@@ -78,8 +80,16 @@ const router = createBrowserRouter([
                 element: <DashBoard></DashBoard>
             },
             {
-                path: '/dashboard/allUsers',
-                element: <AdminRoutes><User></User></AdminRoutes>
+                path: '/dashboard/seller',
+                element: <AdminRoutes><Seller></Seller></AdminRoutes>
+            },
+            {
+                path: '/dashboard/buyer',
+                element: <AdminRoutes><Buyer></Buyer></AdminRoutes>
+            },
+            {
+                path: '/dashboard/reported-post',
+                element: <AdminRoutes><ReportedPost></ReportedPost></AdminRoutes>
             }
         ]
     }

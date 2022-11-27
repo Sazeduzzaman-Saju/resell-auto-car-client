@@ -2,12 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import Table from 'react-bootstrap/Table';
+import toast from 'react-hot-toast';
 
 const DashBoard = () => {
     const { user } = useContext(AuthContext);
-    console.log(user)
     const url = `https://autocar-two.vercel.app/wishlist?email=${user?.email}`;
-    const { data: wishlist = [] } = useQuery({
+    const { data: wishlist = [], refetch } = useQuery({
         queryKey: ['wishList', user?.email],
         queryFn: async () => {
             const res = await fetch(url, {
@@ -19,7 +19,22 @@ const DashBoard = () => {
             return data;
         }
     })
-
+    const handleRemove = id => {
+        fetch(`https://autocar-two.vercel.app/wishlist/${id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access_token')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    console.log(data)
+                    toast.success('Product Deleted')
+                    refetch('')
+                }
+            })
+    }
     return (
         <div>
             <div>
@@ -45,17 +60,19 @@ const DashBoard = () => {
                             <td>{list.product_title}</td>
                             <td>{user.email}</td>
                             <td>
-                                <button className='m-btn'><small>Admin</small></button>
+                                <button className='m-btn'><small>not</small></button>
                             </td>
                             <td>
-                                <button className='m-btn'><small>Remvoe</small></button>
+                                <button onClick={() => handleRemove(list._id)} className='m-btn'>
+                                    <small>remove</small>
+                                </button>
                             </td>
                         </tr>
                         )}
                     </tbody>
                 </Table>
             </div>
-        </div>
+        </div >
     );
 };
 

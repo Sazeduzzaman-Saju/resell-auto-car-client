@@ -113,8 +113,7 @@ const SignUp = () => {
                             required: 'Password Required'
                         })}
                         class=" form-style mb-2" aria-label="Default select example">
-                        <option selected>Select Your Role</option>
-                        <option value="buyer">Buyer</option>
+                        <option selected value="buyer">Buyer</option>
                         <option value="seller">Seller</option>
                     </select>
                     {errors.role && <p className='text-danger mb-5'>{errors.role?.message}</p>}

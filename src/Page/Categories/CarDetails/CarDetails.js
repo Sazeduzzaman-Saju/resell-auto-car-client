@@ -1,14 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import PrimaryButton from '../../../comps/PrimaryButton/PrimaryButton';
 import { AuthContext } from '../../../context/AuthProvider';
 import { FaLocationArrow, FaPhone } from 'react-icons/fa';
+import { Button } from 'react-bootstrap';
+import ReportModal from './ReportModal/ReportModal';
+
 
 
 const CarDetails = () => {
     const singleService = useLoaderData();
     const { user } = useContext(AuthContext)
-    const { _id, slug, position, title, img, description, price, gear_type, condition, mileage, wheel, model_id, negotiable_price } = singleService
+    const { _id, slug, position, title, img, description, price, gear_type, condition, mileage, wheel, model_id, negotiable_price } = singleService;
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
     return (
         <div>
 
@@ -19,7 +29,15 @@ const CarDetails = () => {
                         <img src={img} className="img-fluid" alt="" />
                         <p className="mt-2 mb-5">{description}</p>
                         <div className='d-flex justify-content-between'>
-                            <PrimaryButton>Report Post</PrimaryButton>
+                            {/* <button onClick={handleReport} className="btn btn-primary">Report</button> */}
+                            <Button variant="primary" onClick={() => handleShow(true)}>
+                                Launch vertically centered modal
+                            </Button>
+                            <ReportModal
+                                show={show}
+                                handleClose={handleClose}
+                                singleService={singleService}
+                            ></ReportModal>
                             <Link to={`/carsCategories/add-to-cart/${_id}`} style={{ textDecoration: 'none' }}>
                                 <PrimaryButton >Buy Now</PrimaryButton>
                             </Link>
