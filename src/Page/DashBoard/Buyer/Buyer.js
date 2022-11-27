@@ -32,9 +32,27 @@ const Buyer = () => {
                 }
             })
     }
+
+
+
+    // const handleVerified = id => {
+    //     fetch(`https://autocar-two.vercel.app/users/admin/verified/${id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             authorization: `bearer ${localStorage.getItem('access_token')}`
+    //         }
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             if (data.modifiedCount > 0) {
+    //                 toast.success('Admin Making Done')
+    //                 refetch('')
+    //             }
+    //         })
+    // }
     return (
         <div>
-            <h1>All Seller</h1>
+            <h1>All Buyer</h1>
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -57,6 +75,10 @@ const Buyer = () => {
                         <td>{user.name}</td>
                         <td>{user.email}</td>
                         <td>
+                            {user?.role !== 'admin' ? <><button onClick={() => handleAdmin(user._id)} className='m-btn'><small>Make Admin</small></button></> : <><FaCheckCircle className='text-success'></FaCheckCircle></>}
+
+
+
                             {user?.role !== 'admin' ? <><button onClick={() => handleAdmin(user._id)} className='m-btn'><small>Make Admin</small></button></> : <><FaCheckCircle className='text-success'></FaCheckCircle></>}
 
                         </td>

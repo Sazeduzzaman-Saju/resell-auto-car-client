@@ -22,6 +22,7 @@ const ReportModal = ({ show, handleClose, singleService }) => {
             email: user?.email,
             userName: user?.displayName,
             userComment: data.comments,
+            userPhoto: user?.photoURL,
         }
 
         console.log(reportPost)

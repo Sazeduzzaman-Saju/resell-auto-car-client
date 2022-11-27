@@ -60,15 +60,15 @@ const DashBoardLayout = () => {
                             </Link>
                         }
                         {isSeller &&
-                            <Link to='/dashboard/allUsers' className="link" activeclassName="active">
+                            <Link to='/dashboard/seller/product' className="link" activeclassName="active">
                                 <div className="icon"><FaUserAlt /></div>
-                                <div style={{ display: isOpen ? "block" : "none" }} className="link_text">Add A product</div>
+                                <div style={{ display: isOpen ? "block" : "none" }} className="link_text">My Products</div>
                             </Link>
                         }
                         {isSeller &&
-                            <Link to='/dashboard/allUsers' className="link" activeclassName="active">
+                            <Link to='/dashboard/seller/product-post' className="link" activeclassName="active">
                                 <div className="icon"><FaUserAlt /></div>
-                                <div style={{ display: isOpen ? "block" : "none" }} className="link_text">My Products</div>
+                                <div style={{ display: isOpen ? "block" : "none" }} className="link_text">Add A product</div>
                             </Link>
                         }
                         {isBuyer &&
@@ -77,7 +77,7 @@ const DashBoardLayout = () => {
                                 <div style={{ display: isOpen ? "block" : "none" }} className="link_text">My Products</div>
                             </Link>
                         }
-                        <Link to='/dashboard/allUsers' className="link" activeclassName="active">
+                        <Link to='/dashboard/profile' className="link" activeclassName="active">
                             <div className="icon"><FaUserAlt /></div>
                             <div style={{ display: isOpen ? "block" : "none" }} className="link_text">Profile</div>
                         </Link>

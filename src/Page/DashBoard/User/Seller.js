@@ -17,6 +17,9 @@ const Seller = () => {
         }
     })
 
+
+
+
     const handleAdmin = id => {
         fetch(`https://autocar-two.vercel.app/users/admin/${id}`, {
             method: 'PUT',
@@ -32,22 +35,59 @@ const Seller = () => {
                 }
             })
     }
+
+
+    const handleVerified = id => {
+        fetch(`https://autocar-two.vercel.app/users/admin/verified/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access_token')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('Seller Verified')
+                    refetch('')
+                }
+            })
+    }
+
+    const handleRemove = id => {
+        fetch(`https://autocar-two.vercel.app/users/${id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access_token')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    console.log(data)
+                    toast.success('Product Deleted')
+                    refetch('')
+                }
+            })
+    }
+
+
     return (
         <div>
             <h1>All Seller</h1>
             <Table striped bordered hover>
-                <thead>
-                    <tr>
+                <thead className='text-center'>
+                    <tr >
                         <th>SL</th>
                         <th>Profile</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Admin</th>
-                        <th>Remove</th>
+                        <th>Make Admin</th>
+                        <th>Remove Seller</th>
                         <th>Role</th>
+                        <th>Verified</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='text-center'>
                     {users.length && users?.map((user, i) => <tr
                         key={user._id}
                         className=""
@@ -56,15 +96,23 @@ const Seller = () => {
                         <td><img src={user.photURL} className="img-fluid rounded-circle" alt="" style={{ width: "60px", height: "60px" }} /></td>
                         <td>{user.name}</td>
                         <td>{user.email}</td>
-                        <td>
+                        <td className=''>
                             {user?.role !== 'admin' ? <><button onClick={() => handleAdmin(user._id)} className='m-btn'><small>Make Admin</small></button></> : <><FaCheckCircle className='text-success'></FaCheckCircle></>}
 
+
+
+
                         </td>
-                        <td>
-                            <button className='m-btn'><small>Remvoe</small></button>
+                        <td className='d-flex justify-content-center align-items-center'>
+                            <button onClick={() => handleRemove(user._id)} className='m-btn'>
+                                <small>remove</small>
+                            </button>
                         </td>
-                        <td>
-                            <button className='m-btn'><small>{user?.role}</small></button>
+                        <td >
+                            <p className=''><small>{user?.role}</small></p>
+                        </td>
+                        <td className='d-flex justify-content-center align-items-center'>
+                            {user?.useVerify !== 'verified' ? <><button onClick={() => handleVerified(user._id)} className='m-btn'><small>Verify</small></button></> : <><FaCheckCircle className='text-success'>Seller Verified</FaCheckCircle></>}
                         </td>
                     </tr>
                     )}

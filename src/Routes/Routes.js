@@ -9,7 +9,10 @@ import SideHome from "../Page/Categories/SideHome/SideHome";
 import Buyer from "../Page/DashBoard/Buyer/Buyer";
 import DashBoard from "../Page/DashBoard/DashBoard";
 import ReportedPost from "../Page/DashBoard/ReportedPost/ReportedPost";
+import SellerProduct from "../Page/DashBoard/SellerProduct/SellerProduct";
+import SellerProductPost from "../Page/DashBoard/SellerProduct/SellerProductPost/SellerProductPost";
 import Seller from "../Page/DashBoard/User/Seller";
+import UserProfile from "../Page/DashBoard/UserProfile/UserProfile";
 import ErrorPage from "../Page/ErrorPage/ErrorPage";
 import CategoryData from "../Page/Home/CategoryData/CategoryData";
 import Home from "../Page/Home/Home";
@@ -90,6 +93,18 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/reported-post',
                 element: <AdminRoutes><ReportedPost></ReportedPost></AdminRoutes>
+            },
+            {
+                path: '/dashboard/profile',
+                element: <UserProfile></UserProfile>
+            },
+            {
+                path: '/dashboard/seller/product',
+                element: <PrivateRoutes><SellerProduct></SellerProduct></PrivateRoutes>
+            },
+            {
+                path: '/dashboard/seller/product-post',
+                element: <PrivateRoutes><SellerProductPost></SellerProductPost></PrivateRoutes>
             }
         ]
     }
