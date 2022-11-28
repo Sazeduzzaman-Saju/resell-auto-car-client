@@ -1,8 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
-import { FaShoppingCart } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import PrimaryButton from '../../../comps/PrimaryButton/PrimaryButton';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider';
 import useWebTitle from '../../../hooks/useWebTItle/useWebTitle';
 
@@ -11,7 +9,7 @@ const SellerProduct = () => {
     const { user } = useContext(AuthContext)
 
     const url = `https://autocar-two.vercel.app/cars/seller/${user?.email}`;
-    const { data: sellerPost = [] } = useQuery(
+    const { data: sellerPost = [], refetch } = useQuery(
         ['sellerpost', user?.email],
         async () => {
             const res = await fetch(url);
@@ -20,6 +18,23 @@ const SellerProduct = () => {
         }, {
         refetchInterval: 1000,
     })
+
+    const handleRemove = id => {
+        fetch(`https://autocar-two.vercel.app/seller/${id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access_token')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('Reported Post  Deleted')
+                    refetch('')
+                }
+            })
+    }
+
 
     return (
         <div>
@@ -40,17 +55,8 @@ const SellerProduct = () => {
                                 <sup className='primary-bg text-white rounded-pill p-1 ms-1 shadow-lg text-end'>{post.negotiable_price ? <>Fixed</> : <>NEG</>}</sup>
                             </div>
                             <div className="mt-3 d-flex justify-content-between align-items-center">
-                                <Link to={`/carsCategories/carDetails/${post._id}`} style={{ textDecoration: 'none' }}>
-                                    <PrimaryButton>Details</PrimaryButton>
-                                </Link>
-                                <div className="d-flex flex-row">
-                                    {/* <span onClick={handleWishListSubmit} className="wishlist"><FaHeart></FaHeart></span> */}
 
-                                    <Link to={`/carsCategories/add-to-cart/${post._id}`}>
-                                        <span className="cart"><FaShoppingCart></FaShoppingCart></span>
-                                    </Link>
-
-                                </div>
+                                <button onClick={() => handleRemove(post._id)} className="btns">Remove Now</button>
                             </div>
                         </div>
                     </div>)

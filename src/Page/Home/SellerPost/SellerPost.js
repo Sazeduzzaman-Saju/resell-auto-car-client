@@ -29,7 +29,7 @@ const SellerPost = () => {
                     </div>
                 </div>
             </div>
-            <div data-aos="fade-up-left" data-aos-duration="1500">
+            <div className="car-container" data-aos="fade-up-left" data-aos-duration="1500">
                 {sellerPost.map(post => <SellerSinglePost
                     key={post._id}
                     post={post}

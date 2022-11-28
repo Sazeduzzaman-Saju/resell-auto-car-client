@@ -2,14 +2,10 @@ import React, { useContext, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../Page/Shared/Header/Header';
 import './DashBoardLayout.css';
-import {
-    FaUserAlt
-} from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Footer from '../Page/Shared/Footer/Footer';
 import { AuthContext } from '../context/AuthProvider';
 import useAdminProvide from '../hooks/useAdminProvide/useAdminProvide';
-import useBuyerProvide from '../hooks/useBuyerProvide/useBuyerProvide';
 import useSellerProvide from '../hooks/useSellerProvide/useSellerProvide';
 import { FcBusinessman, FcHighPriority, FcHome, FcManager, FcPaid, FcPortraitMode, FcShop, FcViewDetails } from 'react-icons/fc';
 
@@ -17,7 +13,6 @@ const DashBoardLayout = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { user } = useContext(AuthContext);
     const [isAdmin] = useAdminProvide(user?.email);
-    const [isBuyer] = useBuyerProvide(user?.email);
     const [isSeller] = useSellerProvide(user?.email);
     const toggle = () => setIsOpen(!isOpen);
     return (
@@ -70,12 +65,7 @@ const DashBoardLayout = () => {
                                 <div style={{ display: isOpen ? "block" : "none" }} className="link_text pt-2">Add product</div>
                             </Link>
                         }
-                        {isBuyer &&
-                            <Link to='/dashboard/allUsers' className="link" activeclassName="active">
-                                <div className="icon"><FaUserAlt /></div>
-                                <div style={{ display: isOpen ? "block" : "none" }} className="link_text pt-2">My Products</div>
-                            </Link>
-                        }
+
                         <Link to='/dashboard/profile' className="link" activeclassName="active">
                             <div className="icon"><FcBusinessman /></div>
                             <div style={{ display: isOpen ? "block" : "none" }} className="link_text pt-2">{isAdmin ? <>Admin</> : <>Profile</>}</div>

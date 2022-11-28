@@ -64,9 +64,6 @@ const Buyer = () => {
                             {user?.role !== 'admin' ? <><button onClick={() => handleAdmin(user._id)} className='m-btn'><small>Make Admin</small></button></> : <><FaCheckCircle className='text-success'></FaCheckCircle></>}
 
 
-
-                            {user?.role !== 'admin' ? <><button onClick={() => handleAdmin(user._id)} className='m-btn'><small>Make Admin</small></button></> : <><FaCheckCircle className='text-success'></FaCheckCircle></>}
-
                         </td>
                         <td>
                             <button className='m-btn'><small>Remvoe</small></button>

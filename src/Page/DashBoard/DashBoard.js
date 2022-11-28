@@ -43,6 +43,7 @@ const DashBoard = () => {
         <div>
             <div>
                 <p className='fs-bold'>My Wishlist</p>
+
                 <Table striped bordered hover>
                     <thead className='text-center'>
                         <tr className='text-white primary-bg'>
@@ -55,7 +56,8 @@ const DashBoard = () => {
                             <th>Payment</th>
                         </tr>
                     </thead>
-                    <tbody className='text-center' >
+                    {wishlist.length === 0 && <><h1 className='text-center'>No Data Found</h1></>}
+                    {wishlist.length !== 0 && <><tbody className='text-center' >
                         {wishlist.length && wishlist?.map((list, i) => <tr
                             key={user._id}
                             className=""
@@ -85,7 +87,8 @@ const DashBoard = () => {
 
                         </tr>
                         )}
-                    </tbody>
+                    </tbody></>}
+
                 </Table>
             </div>
         </div >
