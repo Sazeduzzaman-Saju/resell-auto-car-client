@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import Table from 'react-bootstrap/Table';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const DashBoard = () => {
     const { user } = useContext(AuthContext);
@@ -45,8 +46,9 @@ const DashBoard = () => {
                             <th>SL</th>
                             <th>Profile</th>
                             <th>Name</th>
+                            <th>Price</th>
                             <th>Email</th>
-                            <th>Admin</th>
+                            <th>Payment</th>
                             <th>Remove</th>
                         </tr>
                     </thead>
@@ -58,9 +60,19 @@ const DashBoard = () => {
                             <td>{i + 1}</td>
                             <td><img src={list.product_img} className="img-fluid rounded-circle" alt="" style={{ width: "60px", height: "60px" }} /></td>
                             <td>{list.product_title}</td>
+                            <td>{list.price}</td>
                             <td>{user.email}</td>
                             <td>
-                                <button className='m-btn'><small>not</small></button>
+                                {
+                                    list.price && !list.paid && <Link to={`/dashboard/payment/${list._id}`}>
+                                        <button className='m-btn'><small>Pay</small></button>
+                                    </Link>
+                                }
+                                {
+                                    list.price && list.paid &&
+                                    <button className='btn btn-success'><small>Paid</small></button>
+
+                                }
                             </td>
                             <td>
                                 <button onClick={() => handleRemove(list._id)} className='m-btn'>

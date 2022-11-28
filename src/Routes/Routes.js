@@ -8,6 +8,7 @@ import CarDetails from "../Page/Categories/CarDetails/CarDetails";
 import SideHome from "../Page/Categories/SideHome/SideHome";
 import Buyer from "../Page/DashBoard/Buyer/Buyer";
 import DashBoard from "../Page/DashBoard/DashBoard";
+import Payment from "../Page/DashBoard/Payment/Payment";
 import ReportedPost from "../Page/DashBoard/ReportedPost/ReportedPost";
 import SellerProduct from "../Page/DashBoard/SellerProduct/SellerProduct";
 import SellerProductPost from "../Page/DashBoard/SellerProduct/SellerProductPost/SellerProductPost";
@@ -105,6 +106,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/seller/product-post',
                 element: <PrivateRoutes><SellerProductPost></SellerProductPost></PrivateRoutes>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`https://autocar-two.vercel.app/wishlist/${params.id}`)
             }
         ]
     }
