@@ -21,7 +21,7 @@ const SideHome = () => {
             <p>All Available Data {cars.length} Result of {cars.length}</p>
             <div className='car-container mt-5'>
 
-                <div class="all-car-container">
+                <div className="all-car-container">
                     {
                         cars.map(car =>
                             <div key={car._id}

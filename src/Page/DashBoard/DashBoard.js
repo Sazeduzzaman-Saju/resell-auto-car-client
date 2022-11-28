@@ -5,6 +5,7 @@ import Table from 'react-bootstrap/Table';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import useWebTitle from '../../hooks/useWebTItle/useWebTitle';
+import { FcEmptyTrash } from "react-icons/fc";
 
 const DashBoard = () => {
     useWebTitle('Dashboard Home')
@@ -41,33 +42,38 @@ const DashBoard = () => {
     return (
         <div>
             <div>
-                <h1>My Booking</h1>
+                <p className='fs-bold'>My Wishlist</p>
                 <Table striped bordered hover>
-                    <thead>
-                        <tr>
+                    <thead className='text-center'>
+                        <tr className='text-white primary-bg'>
                             <th>SL</th>
                             <th>Profile</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Email</th>
-                            <th>Payment</th>
                             <th>Remove</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='text-center' >
                         {wishlist.length && wishlist?.map((list, i) => <tr
                             key={user._id}
                             className=""
                         >
                             <td>{i + 1}</td>
-                            <td><img src={list.product_img} className="img-fluid rounded-circle" alt="" style={{ width: "60px", height: "60px" }} /></td>
+                            <td><img src={list.product_img} className="img-fluid rounded" alt="" style={{ width: "60px", height: "60px" }} /></td>
                             <td>{list.product_title}</td>
                             <td>{list.price}</td>
                             <td>{user.email}</td>
                             <td>
+                                <button onClick={() => handleRemove(list._id)} className='btn'>
+                                    <FcEmptyTrash className='fs-3'></FcEmptyTrash>
+                                </button>
+                            </td>
+                            <td className='d-flex justify-content-center align-items-center'>
                                 {
-                                    list.price && !list.paid && <Link to={`/dashboard/payment/${list._id}`}>
-                                        <button className='m-btn'><small>Pay</small></button>
+                                    list.price && !list.paid && <Link to={`/dashboard/payment/${list._id}`} style={{ textDecoration: "none" }}>
+                                        <button className='m-btn'>Pay</button>
                                     </Link>
                                 }
                                 {
@@ -76,11 +82,7 @@ const DashBoard = () => {
 
                                 }
                             </td>
-                            <td>
-                                <button onClick={() => handleRemove(list._id)} className='m-btn'>
-                                    <small>remove</small>
-                                </button>
-                            </td>
+
                         </tr>
                         )}
                     </tbody>

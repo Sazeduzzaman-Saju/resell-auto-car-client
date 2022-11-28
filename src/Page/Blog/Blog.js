@@ -32,7 +32,7 @@ const Blog = () => {
                     </div>
                     <div className='col d-flex justify-content-center'>
 
-                        <div className='w-50 mb-5'>
+                        <div className=' mb-5  blog-accordion'>
                             <Accordion defaultActiveKey={['0']} alwaysOpen className="accordion" data-aos="fade-left" data-aos-duration="3000">
                                 <Accordion.Item eventKey="0">
                                     <Accordion.Header>What are the different ways to manage a state in a React application?</Accordion.Header>

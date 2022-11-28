@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
-import { FaHeart, FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import PrimaryButton from '../../../comps/PrimaryButton/PrimaryButton';
 import { AuthContext } from '../../../context/AuthProvider';
@@ -27,27 +27,27 @@ const SellerProduct = () => {
             <div>
                 {
                     sellerPost.map(post => <div
-                        class="card border-0 shadow-lg" style={{ width: '18rem' }}>
-                        <span class="percent">{post.condition}</span>
-                        <div class="card-image ">
+                        className="card border-0 shadow-lg" style={{ width: '18rem' }}>
+                        <span className="percent">{post.condition}</span>
+                        <div className="card-image ">
                             <img src={post.img} className="img-fluid service-car-img" alt='' />
                         </div>
-                        <div class="card-inner">
+                        <div className="card-inner">
                             <span className=''>{post.slug.toUpperCase()}</span>
-                            <h5 class="mb-0">{post.title.slice(0, 20)}</h5>
-                            <div class="price mt-3 ">
+                            <h5 className="mb-0">{post.title.slice(0, 20)}</h5>
+                            <div className="price mt-3 ">
                                 <span>${post.price}</span>
                                 <sup className='primary-bg text-white rounded-pill p-1 ms-1 shadow-lg text-end'>{post.negotiable_price ? <>Fixed</> : <>NEG</>}</sup>
                             </div>
-                            <div class="mt-3 d-flex justify-content-between align-items-center">
+                            <div className="mt-3 d-flex justify-content-between align-items-center">
                                 <Link to={`/carsCategories/carDetails/${post._id}`} style={{ textDecoration: 'none' }}>
                                     <PrimaryButton>Details</PrimaryButton>
                                 </Link>
-                                <div class="d-flex flex-row">
-                                    {/* <span onClick={handleWishListSubmit} class="wishlist"><FaHeart></FaHeart></span> */}
+                                <div className="d-flex flex-row">
+                                    {/* <span onClick={handleWishListSubmit} className="wishlist"><FaHeart></FaHeart></span> */}
 
                                     <Link to={`/carsCategories/add-to-cart/${post._id}`}>
-                                        <span class="cart"><FaShoppingCart></FaShoppingCart></span>
+                                        <span className="cart"><FaShoppingCart></FaShoppingCart></span>
                                     </Link>
 
                                 </div>

@@ -5,10 +5,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 import './Header.css';
-import { FaCartPlus, FaTrash } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
+import { FcLike } from "react-icons/fc";
 
 
 const Header = () => {
@@ -23,8 +24,6 @@ const Header = () => {
             <Nav.Link as={NavLink} to={'/home'}>Home</Nav.Link>
             <Nav.Link as={NavLink} to={'/carsCategories'}>Categories</Nav.Link>
             <Nav.Link as={NavLink} to={'/blog'}>Blog</Nav.Link>
-            <Nav.Link as={NavLink} to={'/contact'}>Contact</Nav.Link>
-            <Nav.Link as={NavLink} to={'/about'}>About</Nav.Link>
             {
                 user?.email ?
                     <><Nav.Link as={NavLink} to={'/dashboard'}>Dashboard</Nav.Link></> : <></>
@@ -76,7 +75,7 @@ const Header = () => {
     }
     return (
         <div className='primary-bg'>
-            <Navbar collapseOnSelect expand="lg" variant="dark">
+            <Navbar collapseOnSelect expand="lg" variant="dark" sticky-top>
                 <Container>
                     <Navbar.Brand as={NavLink} to={'/home'}>
                         <img src="https://i.ibb.co/mG8Dn0Z/logo.png" alt="" />
@@ -88,14 +87,14 @@ const Header = () => {
                         </Nav>
                         <Nav className="d-flex justify-content-center align-items-center">
                             {user?.uid ?
-                                <>
+                                <div className="d-flex justify-content-center align-items-center">
                                     <Nav.Link as={NavLink} onClick={handleSignOut}>SignOut</Nav.Link>
                                     <div>
                                         <Link className='' onClick={handleShow}>
-                                            <span className="position-relative end-50 start-100 translate-middle badge rounded-pill bg-danger">
-                                                3
+                                            <span className="position-relative end-50 start-100 translate-middle badge rounded-circle  fs-6">
+                                                +
                                             </span>
-                                            <FaCartPlus className='text-white'></FaCartPlus>
+                                            <FcLike className='text-white fs-3'></FcLike>
                                         </Link>
 
                                         <Offcanvas show={show} onHide={handleClose}>
@@ -136,11 +135,11 @@ const Header = () => {
                                         </Offcanvas>
                                     </div>
                                     <img className='img-fluid rounded-circle ms-3' style={{ width: '30px', height: "30px" }} src={user?.photoURL} alt="" />
-                                </>
+                                </div>
                                 :
-                                <>
+                                <div>
                                     {userMenu}
-                                </>}
+                                </div>}
                         </Nav>
 
                     </Navbar.Collapse>

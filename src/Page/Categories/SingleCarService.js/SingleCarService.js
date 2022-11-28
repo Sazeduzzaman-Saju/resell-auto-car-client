@@ -35,29 +35,29 @@ const SingleCarService = ({ carService }) => {
 
     }
     return (
-        <div class="">
-            <div class="card border-0 shadow-lg">
-                <span class="percent">{condition}</span>
-                <div class="card-image ">
+        <div className="">
+            <div className="card border-0 shadow-lg">
+                <span className="percent">{condition}</span>
+                <div className="card-image ">
                     <img src={img} className="img-fluid service-car-img" alt='' />
                 </div>
-                <div class="card-inner">
+                <div className="card-inner">
                     <span className=''>{slug.toUpperCase()}</span>
-                    <h5 class="mb-0">{title.slice(0, 20)}</h5>
-                    <div class="price mt-3 ">
+                    <h5 className="mb-0">{title.slice(0, 20)}</h5>
+                    <div className="price mt-3 ">
                         <span>${price}</span>
                         <sup className='primary-bg text-white rounded-pill p-1 ms-1 shadow-lg text-end'>{negotiable_price ? <>Fixed</> : <>NEG</>}</sup>
                     </div>
-                    <div class="mt-3 d-flex justify-content-between align-items-center">
+                    <div className="mt-3 d-flex justify-content-between align-items-center">
                         <NavLink to={`/carsCategories/carDetails/${_id}`} style={{ textDecoration: 'none' }}>
                             <PrimaryButton>Details</PrimaryButton>
                         </NavLink>
-                        <div class="d-flex flex-row">
-                            <span onClick={handleWishListSubmit} class="wishlist"><FaHeart></FaHeart></span>
+                        <div className="d-flex flex-row">
+                            <span onClick={handleWishListSubmit} className="wishlist"><FaHeart></FaHeart></span>
 
 
                             <Link to={'/dashboard'}>
-                                <span onClick={handleWishListSubmit} class="cart"><FaShoppingCart></FaShoppingCart></span>
+                                <span onClick={handleWishListSubmit} className="cart"><FaShoppingCart></FaShoppingCart></span>
                             </Link>
 
                         </div>

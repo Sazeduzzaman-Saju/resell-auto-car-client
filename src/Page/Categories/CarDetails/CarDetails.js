@@ -6,6 +6,7 @@ import { FaLocationArrow, FaPhone } from 'react-icons/fa';
 import { Button } from 'react-bootstrap';
 import ReportModal from './ReportModal/ReportModal';
 import useWebTitle from '../../../hooks/useWebTItle/useWebTitle';
+import { FcCancel } from "react-icons/fc";
 
 
 
@@ -13,7 +14,7 @@ const CarDetails = () => {
     useWebTitle('Car Details Page')
     const singleService = useLoaderData();
     const { user } = useContext(AuthContext)
-    const { _id, slug, position, title, img, description, price, gear_type, condition, mileage, wheel, model_id, negotiable_price } = singleService;
+    const { slug, position, title, img, description, price, gear_type, condition, mileage, wheel, model_id, negotiable_price } = singleService;
 
     const [show, setShow] = useState(false);
 
@@ -33,7 +34,7 @@ const CarDetails = () => {
                         <div className='d-flex justify-content-between'>
                             {/* <button onClick={handleReport} className="btn btn-primary">Report</button> */}
                             <Button variant="m-btn" onClick={() => handleShow(true)}>
-                                Report Post
+                                <span><FcCancel></FcCancel></span> <span className='mt-2'>Report Post</span>
                             </Button>
                             <ReportModal
                                 show={show}
@@ -78,7 +79,7 @@ const CarDetails = () => {
                         </div>
                         <div className='shadow-lg p-3 mt-5 mb-5'>
                             <div>
-                                <span class="badge bg-secondary">Seller</span>
+                                <span className="badge bg-secondary">Seller</span>
                                 <div className='d-flex justify-content-center align-items-center'>
                                     <img src={user?.photoURL} className="rounded-circle" alt="" style={{ width: '60px' }} />
                                     <div className='ms-3'>

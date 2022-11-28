@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../context/AuthProvider';
 
 
 const ReportModal = ({ show, handleClose, singleService }) => {
     const { user } = useContext(AuthContext)
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const { _id, slug, position, title, img, description, price, gear_type, condition, mileage, wheel, model_id, negotiable_price } = singleService;
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const { _id, title, img, description, price, } = singleService;
 
 
 
@@ -35,6 +36,9 @@ const ReportModal = ({ show, handleClose, singleService }) => {
         }).then(res => res.json())
             .then(data => {
                 console.log(data)
+                reset();
+                toast.success('Your Report Have Been Submitted')
+
             })
             .catch(error => console.error(error))
     }

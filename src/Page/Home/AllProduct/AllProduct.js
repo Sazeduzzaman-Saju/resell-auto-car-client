@@ -4,10 +4,9 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { useQuery } from '@tanstack/react-query';
-
 import { NavLink } from 'react-router-dom';
 import PrimaryButton from '../../../comps/PrimaryButton/PrimaryButton';
-import SingleProductHome from './SingleProductHome';
+
 
 const AllProduct = () => {
 
@@ -21,43 +20,7 @@ const AllProduct = () => {
         }
     })
 
-    const testimonialData = [
-        {
-            id: 1,
-            comment: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
 
-            authorName: 'Tommy Loafer',
-            country: "Australia",
-        },
-        {
-            id: 2,
-            comment: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
-
-            authorName: 'Jimmi Nisham',
-            country: "USA",
-        },
-        {
-            id: 3,
-            comment: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
-
-            authorName: 'Tonmoy Barua',
-            country: "Russia",
-        },
-        {
-            id: 4,
-            comment: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
-
-            authorName: 'Jelly Hudson',
-            country: "China",
-        },
-        {
-            id: 5,
-            comment: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
-
-            authorName: 'Jeson Root',
-            country: "California",
-        },
-    ];
     const options = {
         margin: 30,
         responsiveClass: true,
@@ -91,7 +54,7 @@ const AllProduct = () => {
             <div className='row flex justify-content-center align-items-center'>
                 <div className='col-lg-6 col-sm-1 text-start'>
                     <div>
-                        <h1 className=''>Some Feature Product{productData.length}</h1>
+                        <h1 className=''>Feature Product</h1>
                     </div>
                 </div>
                 <div className='col-lg-6 col-sm-1 text-end'>
@@ -102,17 +65,31 @@ const AllProduct = () => {
             </div>
             <div>
                 <OwlCarousel className="slider-items owl-carousel" {...options}>
-                    {productData.map(post => <div className='item mt-5 shadow p-3 mt-5 mb-5 ms-2 me-2 rounded'>
-                        <p>{post.title}</p>
-                        <div className='d-flex justify-content-start align-items-center'>
-                            <img style={{ width: "50px", height: "50px" }} className="rounded-circle border border-info border-4" alt="50x50"
-                                src={post.img} data-holder-rendered="true" />
-                            <div className='ms-3'>
-                                <p className='m-0 fw-bold primary-color'>{post.slug}</p>
-                                <p className='m-0'>{post.price}</p>
+                    {productData.map(post =>
+                        <div key={post._id} className='item mt-5 mb-5  rounded'>
+
+                            <div className="card border-0 shadow-lg">
+                                <span className="percent">{post.condition}</span>
+                                <div className="card-image ">
+                                    <img src={post.img} className="img-fluid service-car-img" alt='' />
+                                </div>
+                                <div className="card-inner">
+                                    <span className=''>{post.slug.toUpperCase()}</span>
+                                    <h5 className="mb-0">{post.title.slice(0, 20)}</h5>
+                                    <div className="price mt-3 ">
+                                        <span>${post.price}</span>
+                                        <sup className='primary-bg text-white rounded-pill p-1 ms-1 shadow-lg text-end'>{post.negotiable_price ? <>Fixed</> : <>NEG</>}</sup>
+                                    </div>
+                                    <div className="mt-3 d-flex justify-content-between align-items-center">
+                                        <NavLink to={`/carsCategories/carDetails/${post._id}`} style={{ textDecoration: 'none' }}>
+                                            <PrimaryButton>Details</PrimaryButton>
+                                        </NavLink>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
-                    </div>)}
+                    )}
                 </OwlCarousel>
             </div>
         </div>

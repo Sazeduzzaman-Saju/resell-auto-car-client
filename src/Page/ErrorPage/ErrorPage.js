@@ -19,7 +19,7 @@ const ErrorPage = () => {
                         <h4 className=' fw-bold'>It's Just A 404 Page</h4>
                         <p className='fw-semibold'>The page you are looking for might have been removed <br /> had it's name changed or is temporarily unavailable.</p>
                         <div className='d-flex justify-content-center align-items-center'>
-                            <Link to={'/'}>
+                            <Link to={'/'} style={{ textDecoration: 'none' }}>
                                 <PrimaryButton>Back Home</PrimaryButton>
                             </Link>
                         </div>

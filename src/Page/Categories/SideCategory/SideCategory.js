@@ -22,7 +22,7 @@ const SideCategory = () => {
 
                         <div className='btn from-top d-flex justify-content-between menu-link'>
                             <div>
-                                <span class="">{name.name}</span>
+                                <span className="">{name.name}</span>
                             </div>
                             <span><FaLongArrowAltRight></FaLongArrowAltRight></span>
                         </div>

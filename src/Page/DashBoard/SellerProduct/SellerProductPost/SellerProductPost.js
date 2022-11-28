@@ -98,7 +98,7 @@ const SellerProductPost = () => {
         <div className='container'>
             <h1 className='text-center'>Post Product</h1>
             <div>
-                <div class=" w-50 mx-auto mt-5 mb-5">
+                <div className=" w-50 mx-auto mt-5 mb-5">
                     <form onSubmit={handleSubmit(handleProductPost)}>
                         <div className='d-flex '>
                             <input
@@ -134,7 +134,7 @@ const SellerProductPost = () => {
                                 {...register("slug", {
                                     required: 'brand Required'
                                 })}
-                                class=" form-style mb-2 ms-2" aria-label="Default select example">
+                                className=" form-style mb-2 ms-2" aria-label="Default select example">
                                 <option selected value="toyota">Which Brand</option>
                                 <option value="toyota">ToyoTa</option>
                                 <option value="bmw">BMW</option>

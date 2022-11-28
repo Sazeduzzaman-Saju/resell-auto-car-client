@@ -38,7 +38,7 @@ const CheckoutForm = ({ data }) => {
         if (card == null) {
             return;
         }
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: 'card',
             card,
         });
@@ -113,7 +113,7 @@ const CheckoutForm = ({ data }) => {
                         },
                     }}
                 />
-                <button className='mt-5 text-center' type="submit" disabled={!stripe || !clientSecret || processing}>
+                <button className='btns mt-5' type="submit" disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>

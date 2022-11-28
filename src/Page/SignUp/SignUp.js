@@ -83,9 +83,9 @@ const SignUp = () => {
 
     return (
         <div>
-            <div class="section text-center">
-                <h4 class="mb-4 pb-3">Sign Up</h4>
-                <form onSubmit={handleSubmit(handleSignUp)}>
+            <div className="section text-center pt-5 mb-5">
+                <h4 className="mb-4 pb-3 mt-5">Sign Up</h4>
+                <form onSubmit={handleSubmit(handleSignUp)} className="pb-5 ">
                     <input
                         {...register("name", {
                             required: 'Name'
@@ -93,7 +93,7 @@ const SignUp = () => {
                         placeholder="Inter Your Name"
                         className='form-style mb-2'
                     />
-                    {errors.name && <p className='text-danger mb-5'>{errors.name?.message}</p>}
+                    {errors.name && <p className='text-danger '>{errors.name?.message}</p>}
 
                     <input type="file"
                         {...register("photURL", {
@@ -102,7 +102,7 @@ const SignUp = () => {
                         placeholder="Inter Your PhotoURL"
                         className='form-style mb-2'
                     />
-                    {errors.photURL && <p className='text-danger mb-5'>{errors.photURL?.message}</p>}
+                    {errors.photURL && <p className='text-danger '>{errors.photURL?.message}</p>}
 
                     <input
                         {...register("email", {
@@ -111,19 +111,19 @@ const SignUp = () => {
                         placeholder="Inter Your Email Address"
                         className='form-style mb-2'
                     />
-                    {errors.email && <p className='text-danger mb-5'>{errors.email?.message}</p>}
+                    {errors.email && <p className='text-danger '>{errors.email?.message}</p>}
 
                     <select
                         {...register("role", {
                             required: 'Password Required'
                         })}
-                        class=" form-style mb-2" aria-label="Default select example">
+                        className=" form-style mb-2" aria-label="Default select example">
                         <option selected value="buyer">Buyer</option>
                         <option value="seller">Seller</option>
                     </select>
-                    {errors.role && <p className='text-danger mb-5'>{errors.role?.message}</p>}
+                    {errors.role && <p className='text-danger '>{errors.role?.message}</p>}
 
-                    <input
+                    <input type='password'
                         {...register("password", {
                             required: 'Password Required'
                         })}
@@ -132,10 +132,10 @@ const SignUp = () => {
                     />
                     {errors.password && <p className='text-danger '>{errors.password?.message}</p>}
                     <input type="submit" value='Sign Up' className='btns mt-3' />
+                    <div className='text-danger text-center fw-bold'>
+                        <p>{loginError.slice(10, 38)}</p>
+                    </div>
                 </form>
-                <div className='text-danger text-center fw-bold'>
-                    <p>{loginError.slice(10, 38)}</p>
-                </div>
             </div>
         </div>
     );

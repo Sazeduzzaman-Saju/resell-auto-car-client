@@ -8,7 +8,7 @@ const Steps = () => {
         <div>
             <div className="container mb-5">
                 <div className=' text-center welcome-text' data-aos="fade-left" data-aos-duration="3000">
-                    <h1 class="main-block__title mt-5 pt-5 primary-color "><strong>Steps</strong></h1>
+                    <h1 className="main-block__title mt-5 pt-5 primary-color "><strong>Steps</strong></h1>
                     <h6>Use Our System In Easy Way!</h6>
                 </div>
                 <div className="row mt-5">

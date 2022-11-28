@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../context/AuthProvider';
 import { DayPicker } from 'react-day-picker';
 import { useQuery } from '@tanstack/react-query';
-import { FcOk } from "react-icons/fc";
+import { FcApproval } from "react-icons/fc";
 import useWebTitle from '../../../hooks/useWebTItle/useWebTitle';
 
 
@@ -28,25 +28,25 @@ const UserProfile = () => {
 
     return (
         <div>
-            <div class="container">
+            <div className="container">
                 <p>Your Personal Profile</p>
                 <div>
                     {
                         singleUser.map(users =>
-                            <div class="row mt-5">
-                                <div class="col-lg-3 mt-5 d-flex ">
+                            <div className="row mt-5">
+                                <div className="col-lg-3 mt-5 d-flex ">
 
-                                    <a href="/users" class="pull-right">
+                                    <a href="/users" className="pull-right">
 
-                                        <img title="profile image" class="img-circle rounded img-responsive" src={users.photURL} alt='' />
+                                        <img title="profile image img-fluid" className="img-circle rounded img-responsive" src={users.photURL} alt='' />
                                     </a>
-                                    {users?.useVerify !== 'verified' ? <></> : <><span class="primary-color" >
-                                        <FcOk className='fs-2 primary-color' style={{ color: "red" }}></FcOk>
+                                    {users?.useVerify !== 'verified' ? <></> : <><span className="primary-color" >
+                                        <FcApproval className='fs-2' ></FcApproval>
                                     </span></>}
 
                                 </div>
-                                <div class="col-lg-5">
-                                    <div class="section ">
+                                <div className="col-lg-5">
+                                    <div className="section ">
                                         <form>
                                             <label for="name" className='test-start fw-bold'>Name</label>
                                             <input
@@ -75,7 +75,7 @@ const UserProfile = () => {
                                         </form>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div className="col-lg-4">
                                     <DayPicker
                                         className='shadow-lg rounded p-3'
                                         mode="single"

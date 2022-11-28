@@ -1,9 +1,9 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Table from 'react-bootstrap/Table';
-import { FaCheckCircle } from "react-icons/fa";
 import toast from 'react-hot-toast';
 import useWebTitle from '../../../hooks/useWebTItle/useWebTitle';
+import { FcApproval } from "react-icons/fc";
 
 
 const Seller = () => {
@@ -74,10 +74,10 @@ const Seller = () => {
 
     return (
         <div>
-            <h1>All Seller</h1>
+            <p>All Seller</p>
             <Table striped bordered hover>
                 <thead className='text-center'>
-                    <tr >
+                    <tr className='text-white primary-bg'>
                         <th>SL</th>
                         <th>Profile</th>
                         <th>Name</th>
@@ -98,7 +98,7 @@ const Seller = () => {
                         <td>{user.name}</td>
                         <td>{user.email}</td>
                         <td className=''>
-                            {user?.role !== 'admin' ? <><button onClick={() => handleAdmin(user._id)} className='m-btn'><small>Make Admin</small></button></> : <><FaCheckCircle className='text-success'></FaCheckCircle></>}
+                            {user?.role !== 'admin' ? <><button className="btn" onClick={() => handleAdmin(user._id)}><small>Make Admin</small></button></> : <><FcApproval className='text-success'></FcApproval></>}
                         </td>
                         <td className='d-flex justify-content-center align-items-center'>
                             <button onClick={() => handleRemove(user._id)} className='m-btn'>
@@ -109,7 +109,7 @@ const Seller = () => {
                             <p className=''><small>{user?.role}</small></p>
                         </td>
                         <td className='d-flex justify-content-center align-items-center'>
-                            {user?.useVerify !== 'verified' ? <><button onClick={() => handleVerified(user._id)} className='m-btn'><small>Verify</small></button></> : <><FaCheckCircle className='text-success'></FaCheckCircle></>}
+                            {user?.useVerify !== 'verified' ? <><button onClick={() => handleVerified(user._id)} className='m-btn'><small>Verify</small></button></> : <><FcApproval className='text-success'></FcApproval></>}
                         </td>
                     </tr>
                     )}

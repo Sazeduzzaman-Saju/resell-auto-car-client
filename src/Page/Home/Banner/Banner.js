@@ -7,9 +7,9 @@ const Banner = () => {
             <div className='pt-0'>
                 <div className='row mb-5'>
                     <div className='col d-flex justify-content-center align-items-center'>
-                        <section class="showcase">
+                        <section className="showcase">
                             <img className="img-fluid" src="https://i.ibb.co/rmb2HSk/joey-banks-YApi-Wyp0lqo-unsplash.jpg" alt="" />
-                            <div class="overlay" >
+                            <div className="overlay" >
                                 <div data-aos="fade-left" data-aos-duration="3000">
 
                                     <h2>VEHICLE LISTINGS <br /> IN YOUR HAND</h2>

@@ -19,6 +19,8 @@ main {
 }
 .bars {
   display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 25px;
   margin-left: 50px;
 }
@@ -35,7 +37,9 @@ main {
   color: #000;
   transition: all 0.5s;
 }
-.icon,
+.icon {
+  font-size: 25px;
+}
 .link_text {
-  font-size: 20px;
+  font-size: 18px;
 }

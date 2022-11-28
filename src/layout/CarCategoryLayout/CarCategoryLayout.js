@@ -1,6 +1,6 @@
 // import React, { useEffect, useState } from 'react';
 import Footer from '../../Page/Shared/Footer/Footer';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Header from '../../Page/Shared/Header/Header';
 import SideCategory from '../../Page/Categories/SideCategory/SideCategory';
 

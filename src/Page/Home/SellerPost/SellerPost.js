@@ -4,7 +4,7 @@ import SellerSinglePost from './SellerSinglePost';
 
 const SellerPost = () => {
     const url = 'https://autocar-two.vercel.app/seller/post';
-    const { data: sellerPost = [], refetch } = useQuery(
+    const { data: sellerPost = [] } = useQuery(
         ['sellerpost'],
         async () => {
             const res = await fetch(url, {
@@ -20,42 +20,16 @@ const SellerPost = () => {
 
     console.log(sellerPost.length)
 
-
-    // const handleWishListSubmit = () => {
-    //     const addWishList = {
-    //         wishListIid: _id,
-    //         product_img: img,
-    //         product_title: title,
-    //         price: price,
-    //         email: user?.email
-    //     }
-
-    //     fetch(`https://autocar-two.vercel.app/wishlist`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(addWishList)
-    //     }).then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             refetch();
-    //         })
-    //         .catch(error => console.error(error))
-
-    // }
-
-
     return (
         <div>
             <div className='container mt-5'>
                 <div className='border-start'>
                     <div className='text-end mt-5 ms-2' data-aos="fade-left" data-aos-duration="3000">
-                        <h1 class="main-block__title primary-color "><strong>Seller Collection</strong></h1>
+                        <h1 className="main-block__title primary-color "><strong>Seller Collection</strong></h1>
                     </div>
                 </div>
             </div>
-            <div>
+            <div data-aos="fade-up-left" data-aos-duration="1500">
                 {sellerPost.map(post => <SellerSinglePost
                     key={post._id}
                     post={post}
