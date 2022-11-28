@@ -2,7 +2,7 @@
 
 ### About AutoCar
 
-\*\* This is PhotoService .This is For Only Service Reletad Web App.Which Serve Many types of Services When you open the project you will see some little helpful Services.Try it hope you like it.All Services are just for demo purpose.
+\*\* This is AutoCar .This is For Only Service Relevant Web App.Which Serve Car Reselling Services When you open the project you will see some little helpful Services and Admin dashboard include.
 It would be nice to start without delay .It will be very convenient to read the code.
 So hope you would like & Enjoy🤠
 
@@ -10,11 +10,15 @@ So hope you would like & Enjoy🤠
 
 - HTML.
 - CSS.
-- Tailwind.
-- DaisyUI.
+- React Bootstrap.
+- Bootstrap.
+- AOS Animation.
 - React Js.
-- React Image Zoom
+- React Router For Single Page.
+- React Calender.
 - React Icons
+- Firebase For Authentication and Hosting.
+- MongoDB Database.
 
 ## 📙 Need To do.
 
@@ -24,7 +28,6 @@ So hope you would like & Enjoy🤠
 - Simple Install npm Package.
 - Runs the app in the development mode.\
   Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-- and live site link [https://photo-serve-59058.web.app/]
 
 ## ⚙️ Setup
 
@@ -54,6 +57,16 @@ So hope you would like & Enjoy🤠
   ```bash
   npm run build
   ```
+
+## Some Important Link
+
+- Live web link : [https://autocar-406b0.web.app/]
+- Github Client Side Repogitory:[https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-Sazeduzzzaman]
+- Github Server Sider Repository :[https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-Sazeduzzzaman]
+
+- Admin : admin@info.com
+
+- Password: 01060106
 
 ## 🤠 About Me
 

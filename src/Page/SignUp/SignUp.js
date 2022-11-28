@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import useUserToken from '../../hooks/useWebTItle/useUserToken/useUserToken';
+import useWebTitle from '../../hooks/useWebTItle/useWebTitle';
 
 const SignUp = () => {
+    useWebTitle('Sign Up Page');
     const [loginError, setLoginError] = useState('')
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
@@ -19,6 +22,7 @@ const SignUp = () => {
         navigate('/');
     }
     const handleSignUp = (data) => {
+
 
         setLoginError('')
         createUser(data.email, data.password)
@@ -51,7 +55,7 @@ const SignUp = () => {
                             updateUser(userInfo)
                                 .then(() => {
                                     saveUser(data.name, data.email, imgData.data.url, data.role)
-                                    alert('Sign Up SuccessFully Done')
+                                    toast.sucess('Sign Up SuccessFully Done')
                                 })
                                 .catch(err => console.error(err))
                         }
@@ -62,6 +66,7 @@ const SignUp = () => {
     }
 
     const saveUser = (name, email, photURL, role) => {
+
         const user = { name, email, photURL, role };
         fetch('https://autocar-two.vercel.app/users', {
             method: 'POST',
@@ -126,7 +131,7 @@ const SignUp = () => {
                         className=' form-style'
                     />
                     {errors.password && <p className='text-danger '>{errors.password?.message}</p>}
-                    <input type="submit" value='Login' className='btns mt-3' />
+                    <input type="submit" value='Sign Up' className='btns mt-3' />
                 </form>
                 <div className='text-danger text-center fw-bold'>
                     <p>{loginError.slice(10, 38)}</p>
