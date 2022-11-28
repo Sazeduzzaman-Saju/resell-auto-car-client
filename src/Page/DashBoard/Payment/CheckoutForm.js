@@ -13,7 +13,7 @@ const CheckoutForm = ({ data }) => {
     const elements = useElements()
 
     useEffect(() => {
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://autocar-two.vercel.ap/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -74,7 +74,7 @@ const CheckoutForm = ({ data }) => {
                 email,
                 wishListId: _id
             }
-            fetch('http://localhost:5000/payments', {
+            fetch('https://autocar-two.vercel.ap/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

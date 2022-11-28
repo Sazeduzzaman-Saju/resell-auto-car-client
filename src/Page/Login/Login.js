@@ -10,6 +10,7 @@ import useUserToken from '../../hooks/useWebTItle/useUserToken/useUserToken';
 
 
 const Login = () => {
+    useWebTitle('Login Or Sign Up Your Choice')
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { loginUser } = useContext(AuthContext)
     const [loginError, setLoginError] = useState('');

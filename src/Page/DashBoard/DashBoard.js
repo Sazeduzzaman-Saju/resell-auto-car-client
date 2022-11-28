@@ -4,8 +4,10 @@ import { AuthContext } from '../../context/AuthProvider';
 import Table from 'react-bootstrap/Table';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import useWebTitle from '../../hooks/useWebTItle/useWebTitle';
 
 const DashBoard = () => {
+    useWebTitle('Dashboard Home')
     const { user } = useContext(AuthContext);
     const url = `https://autocar-two.vercel.app/wishlist?email=${user?.email}`;
     const { data: wishlist = [], refetch } = useQuery({

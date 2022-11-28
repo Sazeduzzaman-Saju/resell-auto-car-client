@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
-import './SingleCarService.css';
-import { FaShoppingCart, FaHeart } from 'react-icons/fa';
-import PrimaryButton from '../../../comps/PrimaryButton/PrimaryButton';
+import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
+import PrimaryButton from '../../../comps/PrimaryButton/PrimaryButton';
 import { AuthContext } from '../../../context/AuthProvider';
 
-
-const SingleCarService = ({ carService }) => {
+const SellerSinglePost = ({ post }) => {
     const { user } = useContext(AuthContext)
-    const { _id, title, img, condition, slug, price, negotiable_price } = carService;
+    const { _id, title, img, condition, slug, price, negotiable_price, displayName, photoURL, email } = post;
     console.log(_id, title, price, img);
 
 
@@ -34,9 +32,10 @@ const SingleCarService = ({ carService }) => {
             .catch(error => console.error(error))
 
     }
+
     return (
-        <div class="">
-            <div class="card border-0 shadow-lg">
+        <div className='container'>
+            <div class="card border-0 shadow-lg" style={{ width: "18rem" }}>
                 <span class="percent">{condition}</span>
                 <div class="card-image ">
                     <img src={img} className="img-fluid service-car-img" alt='' />
@@ -62,10 +61,19 @@ const SingleCarService = ({ carService }) => {
 
                         </div>
                     </div>
+                    <div>
+                        <div className='d-flex  align-items-center mt-3'>
+                            <img src={photoURL} className="rounded-circle" alt="" style={{ width: '40px' }} />
+                            <div className='ms-3'>
+                                <p className='m-0'>{displayName}</p>
+                                <p className='m-0'>{email}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     );
 };
 
-export default SingleCarService;
+export default SellerSinglePost;

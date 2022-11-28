@@ -19,7 +19,7 @@ const AdvertisedItems = () => {
             <div className='container mt-5'>
                 <div className='border-start'>
                     <div className='text-start mt-5 ms-2' data-aos="fade-left" data-aos-duration="3000">
-                        <h1 class="main-block__title primary-color "><strong>Hot Collection {category.length}</strong></h1>
+                        <h1 class="main-block__title primary-color "><strong>Brand Collection</strong></h1>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@ const AdvertisedItems = () => {
                             category.map(name => <p key={name._id}>
                                 <Link to={`/carsCategories/category/${name.slug}`}>
                                     <div class="hot-box">
-                                        <img src={name.brand_img} alt='' style={{ height: "150px" }} />
+                                        <img className='p-3' src={name.brand_img} alt='' style={{ height: "150px" }} />
                                         <div class="hot-box-content">
                                             <div class="content">
                                                 <h3 class="title">{name.name}</h3>

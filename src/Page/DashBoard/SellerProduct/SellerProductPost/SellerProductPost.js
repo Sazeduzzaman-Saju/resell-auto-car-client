@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../context/AuthProvider';
+import useWebTitle from '../../../../hooks/useWebTItle/useWebTitle';
 
 
 
 const SellerProductPost = () => {
+    useWebTitle('Post My Car')
     const { user } = useContext(AuthContext);
     console.log(user)
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -28,21 +30,21 @@ const SellerProductPost = () => {
             .then(imgData => {
                 console.log(imgData.data.url)
                 if (imgData.success) {
-                    const productInfo = {
-                        title: data.title,
-                        img: imgData.data.url,
-                        price: data.price,
-                        condition: data.condition,
-                        slug: data.slug,
-                        position: data.position,
-                        wheel: data.wheel,
-                        gear_type: data.mileage,
-                        mileage: data.gear_type,
-                        model: data.model,
-                        negotiable_price: data.negotiable_price,
-                        phone: data.phone,
-                        description: data.description
-                    }
+                    // const productInfo = {
+                    //     title: data.title,
+                    //     img: imgData.data.url,
+                    //     price: data.price,
+                    //     condition: data.condition,
+                    //     slug: data.slug,
+                    //     position: data.position,
+                    //     wheel: data.wheel,
+                    //     gear_type: data.mileage,
+                    //     mileage: data.gear_type,
+                    //     model: data.model,
+                    //     negotiable_price: data.negotiable_price,
+                    //     phone: data.phone,
+                    //     description: data.description
+                    // }
                     saveProduct(
                         data.title,
                         imgData.data.url,
@@ -69,7 +71,7 @@ const SellerProductPost = () => {
 
     const saveProduct = (title, img, price, condition, slug, position, wheel, mileage, gear_type, model, negotiable_price, phone, description, displayName, photoURL, email) => {
 
-        const sellerPost = { title, img, price, condition, slug, position, wheel, mileage, gear_type, model, negotiable_price, phone, description, displayName, photoURL, email };
+        const sellerPost = { title, img, price, condition, slug, position, wheel, mileage, gear_type, model, negotiable_price, phone, description, displayName, photoURL, email, postStatus: 'sellerPost' };
 
 
         fetch('https://autocar-two.vercel.app/cars', {

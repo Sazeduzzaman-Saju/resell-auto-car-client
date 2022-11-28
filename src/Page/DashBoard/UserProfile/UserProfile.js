@@ -3,7 +3,13 @@ import { AuthContext } from '../../../context/AuthProvider';
 import { DayPicker } from 'react-day-picker';
 import { useQuery } from '@tanstack/react-query';
 import { FcOk } from "react-icons/fc";
+import useWebTitle from '../../../hooks/useWebTItle/useWebTitle';
+
+
+
+
 const UserProfile = () => {
+    useWebTitle('My Profile')
     const { user } = useContext(AuthContext);
     console.log(user.metadata.creationTime)
     const [date, setDate] = useState(new Date());
@@ -19,6 +25,7 @@ const UserProfile = () => {
         refetchInterval: 1000,
     })
     console.log(singleUser)
+
     return (
         <div>
             <div class="container">

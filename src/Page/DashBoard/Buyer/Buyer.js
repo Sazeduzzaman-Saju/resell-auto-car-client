@@ -3,9 +3,11 @@ import { useQuery } from '@tanstack/react-query';
 import Table from 'react-bootstrap/Table';
 import { FaCheckCircle } from "react-icons/fa";
 import toast from 'react-hot-toast';
+import useWebTitle from '../../../hooks/useWebTItle/useWebTitle';
 
 
 const Buyer = () => {
+    useWebTitle('Buyer Page')
     // const { user } = useContext(AuthContext)
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
@@ -34,22 +36,6 @@ const Buyer = () => {
     }
 
 
-
-    // const handleVerified = id => {
-    //     fetch(`https://autocar-two.vercel.app/users/admin/verified/${id}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             authorization: `bearer ${localStorage.getItem('access_token')}`
-    //         }
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.modifiedCount > 0) {
-    //                 toast.success('Admin Making Done')
-    //                 refetch('')
-    //             }
-    //         })
-    // }
     return (
         <div>
             <h1>All Buyer</h1>

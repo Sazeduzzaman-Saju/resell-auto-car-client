@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
+import useWebTitle from '../../../hooks/useWebTItle/useWebTitle';
 import './SideHome.css';
 import SingleCategoryData from './SingleCategoryData';
 
 const SideHome = () => {
 
-
+    useWebTitle('CateGory Home')
     const url = 'https://autocar-two.vercel.app/cars';
     const { data: cars = [] } = useQuery({
         queryKey: ['cars'],

@@ -1,10 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
+import useWebTitle from '../../../hooks/useWebTItle/useWebTitle';
 import './ReportedPost.css';
 
 const ReportedPost = () => {
+    useWebTitle('Reported Post')
     const url = `https://autocar-two.vercel.app/reportedpost`;
-    const { data: reportedPost = [] } = useQuery(
+    const { data: reportedPost = [], refetch } = useQuery(
 
         ['reported-post'],
         async () => {
@@ -19,7 +22,25 @@ const ReportedPost = () => {
         refetchInterval: 1000,
     })
 
-    console.log(reportedPost)
+
+
+    const handleRemove = id => {
+        fetch(`https://autocar-two.vercel.app/reportedpost/${id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access_token')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('Reported Post  Deleted')
+                    refetch('')
+                }
+            })
+    }
+
+
     return (
         <div className='container'>
             <p>Available Reported Data {reportedPost.length} Result of {reportedPost.length}</p>
@@ -37,7 +58,7 @@ const ReportedPost = () => {
                                     <p class="p-0 m-0">{report.userComment}</p>
                                 </div>
                             </div>
-                            <button class="btns">Remove Now</button>
+                            <button onClick={() => handleRemove(report._id)} class="btns">Remove Now</button>
                         </div>
                     </div>)
                 }

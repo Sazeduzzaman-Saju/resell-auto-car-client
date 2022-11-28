@@ -16,9 +16,6 @@ const Banner = () => {
                                     <p className='primary-bg p-3 mb-0'>
                                         Find the best deals on cars from<br /> the trusted dealers and sellers.
                                     </p>
-                                    <p className=' '>
-                                        Find the good quality <br /> cars from our app
-                                    </p>
                                 </div>
                             </div>
                         </section>

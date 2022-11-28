@@ -52,8 +52,9 @@ const SingleCategoryData = ({ car }) => {
                         </Link>
                         <div class="d-flex flex-row">
                             <span onClick={handleWishListSubmit} class="wishlist"><FaHeart></FaHeart></span>
-                            <Link to={`/carsCategories/add-to-cart/${car._id}`}>
-                                <span class="cart"><FaShoppingCart></FaShoppingCart></span>
+
+                            <Link to={`/dashboard`}>
+                                <span onClick={handleWishListSubmit} class="cart"><FaShoppingCart></FaShoppingCart></span>
                             </Link>
                         </div>
                     </div>

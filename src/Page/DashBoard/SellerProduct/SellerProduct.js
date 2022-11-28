@@ -4,8 +4,10 @@ import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import PrimaryButton from '../../../comps/PrimaryButton/PrimaryButton';
 import { AuthContext } from '../../../context/AuthProvider';
+import useWebTitle from '../../../hooks/useWebTItle/useWebTitle';
 
 const SellerProduct = () => {
+    useWebTitle('My Product')
     const { user } = useContext(AuthContext)
 
     const url = `https://autocar-two.vercel.app/cars/seller/${user?.email}`;

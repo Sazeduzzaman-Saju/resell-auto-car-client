@@ -8,6 +8,7 @@ import './Header.css';
 import { FaCartPlus, FaTrash } from 'react-icons/fa';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useQuery } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 
 
 const Header = () => {
@@ -44,7 +45,7 @@ const Header = () => {
             .catch(err => console.error(err))
     }
     const url = `https://autocar-two.vercel.app/wishlist?email=${user?.email}`;
-    const { data: wisListItems = [] } = useQuery(
+    const { data: wisListItems = [], refetch } = useQuery(
         ['wishList', user?.email],
         async () => {
             const res = await fetch(url, {
@@ -56,9 +57,23 @@ const Header = () => {
             return data;
         }, {
         refetchInterval: 1000,
+    })
+    const handleRemove = id => {
+        fetch(`https://autocar-two.vercel.app/wishlist/${id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access_token')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    console.log(data)
+                    toast.success('Product Deleted')
+                    refetch('')
+                }
+            })
     }
-
-    )
     return (
         <div className='primary-bg'>
             <Navbar collapseOnSelect expand="lg" variant="dark">
@@ -104,7 +119,9 @@ const Header = () => {
                                                                                 ${items.price}
                                                                             </p>
                                                                             <p className=" ">
-                                                                                <button className='cart'>
+                                                                                <button
+                                                                                    onClick={() => handleRemove(items._id)}
+                                                                                    className='cart'>
                                                                                     <FaTrash></FaTrash>
                                                                                 </button>
                                                                             </p>

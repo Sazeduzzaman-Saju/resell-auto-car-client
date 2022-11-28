@@ -3,16 +3,17 @@ import { useQuery } from '@tanstack/react-query';
 import Table from 'react-bootstrap/Table';
 import { FaCheckCircle } from "react-icons/fa";
 import toast from 'react-hot-toast';
+import useWebTitle from '../../../hooks/useWebTItle/useWebTitle';
 
 
 const Seller = () => {
+    useWebTitle('Seller Page')
     // const { user } = useContext(AuthContext)
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch(`https://autocar-two.vercel.app/user/seller`);
             const data = await res.json();
-            console.log(data)
             return data;
         }
     })
@@ -30,6 +31,7 @@ const Seller = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
+                    console.log(data)
                     toast.success('Admin Making Done')
                     refetch('')
                 }
@@ -63,7 +65,6 @@ const Seller = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    console.log(data)
                     toast.success('Product Deleted')
                     refetch('')
                 }
@@ -98,10 +99,6 @@ const Seller = () => {
                         <td>{user.email}</td>
                         <td className=''>
                             {user?.role !== 'admin' ? <><button onClick={() => handleAdmin(user._id)} className='m-btn'><small>Make Admin</small></button></> : <><FaCheckCircle className='text-success'></FaCheckCircle></>}
-
-
-
-
                         </td>
                         <td className='d-flex justify-content-center align-items-center'>
                             <button onClick={() => handleRemove(user._id)} className='m-btn'>
@@ -112,7 +109,7 @@ const Seller = () => {
                             <p className=''><small>{user?.role}</small></p>
                         </td>
                         <td className='d-flex justify-content-center align-items-center'>
-                            {user?.useVerify !== 'verified' ? <><button onClick={() => handleVerified(user._id)} className='m-btn'><small>Verify</small></button></> : <><FaCheckCircle className='text-success'>Seller Verified</FaCheckCircle></>}
+                            {user?.useVerify !== 'verified' ? <><button onClick={() => handleVerified(user._id)} className='m-btn'><small>Verify</small></button></> : <><FaCheckCircle className='text-success'></FaCheckCircle></>}
                         </td>
                     </tr>
                     )}

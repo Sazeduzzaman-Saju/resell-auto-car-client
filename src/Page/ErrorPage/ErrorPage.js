@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import './ErrorPage.css';
 import errorImage from './404 Error-amico.svg'
 import PrimaryButton from '../../comps/PrimaryButton/PrimaryButton';
+import useWebTitle from '../../hooks/useWebTItle/useWebTitle';
 
 const ErrorPage = () => {
-
+    useWebTitle('Error Route Please Back Home')
     return (
         <div className='errors-areas'>
             <section className='container '>

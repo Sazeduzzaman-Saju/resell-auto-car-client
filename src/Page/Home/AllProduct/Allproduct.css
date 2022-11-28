@@ -1,0 +1,40 @@
+.testimonials-conetent h2 {
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 60px;
+    letter-spacing: -1px;
+  }
+  .owl-theme .owl-nav [class*="owl-"]:hover {
+    background: #869791;
+    color: #fff;
+    text-decoration: none;
+    width: 25px;
+    border-radius: 50%;
+    height: 25px;
+    text-align: center;
+  }
+  .owl-prev {
+    margin-left: 20px !important;
+    background: #19d3ae !important;
+    width: 40px;
+    border-radius: 50% !important;
+    height: 40px;
+    color: white !important;
+    font-size: 25px !important;
+  }
+  .owl-next {
+    font-size: 18px;
+    margin-left: 10px !important;
+    width: 25px;
+    border-radius: 50% !important;
+    background: #19d3ae !important;
+    color: white !important;
+  }
+  
+  .owl-theme .owl-dots .owl-dot span {
+    display: none !important;
+  }
+  .item p {
+    text-align: justify;
+  }
+  

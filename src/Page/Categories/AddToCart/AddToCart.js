@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import PrimaryButton from '../../../comps/PrimaryButton/PrimaryButton';
+import useWebTitle from '../../../hooks/useWebTItle/useWebTitle';
 import './AddToCart.css';
 
 const AddToCart = () => {
+    useWebTitle('Product Check Out Page')
     const cartData = useLoaderData();
-    console.log(cartData)
-    const { img, title, price, condition } = cartData;
+    const { _id, img, title, price, condition } = cartData;
     return (
         <div class="cart_section">
             <div class="container-fluid">
@@ -55,7 +56,10 @@ const AddToCart = () => {
                                     <PrimaryButton>Another Car</PrimaryButton>
                                 </Link>
                                 <div className="ms-2">
-                                    <PrimaryButton>PAYMENT</PrimaryButton>
+                                    <Link to={`/dashboard/payment/${_id}`}>
+                                        <PrimaryButton>PAYMENT</PrimaryButton>
+                                    </Link>
+
                                 </div>
                             </div>
                         </div>

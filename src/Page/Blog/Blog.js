@@ -3,8 +3,10 @@ import PrimaryButton from '../../comps/PrimaryButton/PrimaryButton';
 import blogImage from './Blog post-amico.svg';
 import Accordion from 'react-bootstrap/Accordion';
 import './Blog.css';
+import useWebTitle from '../../hooks/useWebTItle/useWebTitle';
 
 const Blog = () => {
+    useWebTitle('Blog Comunity');
     return (
         <div>
             <div className='container'>
