@@ -20,7 +20,7 @@ const SellerProductPost = () => {
 
         const formData = new FormData();
         formData.append('image', image)
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imgHostBB}`;
+        const url = `https://api.imgbb.com/1/upload?&key=${imgHostBB}`;
         console.log(url)
         fetch(url, {
             method: 'POST',
@@ -30,21 +30,6 @@ const SellerProductPost = () => {
             .then(imgData => {
                 console.log(imgData.data.url)
                 if (imgData.success) {
-                    // const productInfo = {
-                    //     title: data.title,
-                    //     img: imgData.data.url,
-                    //     price: data.price,
-                    //     condition: data.condition,
-                    //     slug: data.slug,
-                    //     position: data.position,
-                    //     wheel: data.wheel,
-                    //     gear_type: data.mileage,
-                    //     mileage: data.gear_type,
-                    //     model: data.model,
-                    //     negotiable_price: data.negotiable_price,
-                    //     phone: data.phone,
-                    //     description: data.description
-                    // }
                     saveProduct(
                         data.title,
                         imgData.data.url,
@@ -74,7 +59,7 @@ const SellerProductPost = () => {
         const sellerPost = { title, img, price, condition, slug, position, wheel, mileage, gear_type, model, negotiable_price, phone, description, displayName, photoURL, email, postStatus: 'sellerPost' };
 
 
-        fetch('https://autocar-two.vercel.app/cars', {
+        fetch('https://resell-autocar-server.vercel.app/cars', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

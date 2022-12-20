@@ -12,7 +12,7 @@ const Buyer = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch(`https://autocar-two.vercel.app/user/buyer`);
+            const res = await fetch(`https://resell-autocar-server.vercel.app/user/buyer`);
             const data = await res.json();
             console.log(data)
             return data;
@@ -20,7 +20,7 @@ const Buyer = () => {
     })
 
     const handleAdmin = id => {
-        fetch(`https://autocar-two.vercel.app/users/admin/${id}`, {
+        fetch(`https://resell-autocar-server.vercel.app/users/admin/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('access_token')}`

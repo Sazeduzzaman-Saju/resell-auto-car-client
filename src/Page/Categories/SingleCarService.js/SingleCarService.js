@@ -21,7 +21,7 @@ const SingleCarService = ({ carService }) => {
             email: user?.email
         }
 
-        fetch(`https://autocar-two.vercel.app/wishlist`, {
+        fetch(`https://resell-autocar-server.vercel.app/wishlist`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -43,7 +43,7 @@ const SingleCarService = ({ carService }) => {
                 </div>
                 <div className="card-inner">
                     <span className=''>{slug.toUpperCase()}</span>
-                    <h5 className="mb-0">{title.slice(0, 20)}</h5>
+                    {/* <h5 className="mb-0">{title.slice(0, 15)}</h5> */}
                     <div className="price mt-3 ">
                         <span>${price}</span>
                         <sup className='primary-bg text-white rounded-pill p-1 ms-1 shadow-lg text-end'>{negotiable_price ? <>Fixed</> : <>NEG</>}</sup>

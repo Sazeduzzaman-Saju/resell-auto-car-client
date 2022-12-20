@@ -19,7 +19,7 @@ const SellerSinglePost = ({ post }) => {
             email: user?.email
         }
 
-        fetch(`https://autocar-two.vercel.app/wishlist`, {
+        fetch(`https://resell-autocar-server.vercel.app/wishlist`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -35,7 +35,7 @@ const SellerSinglePost = ({ post }) => {
 
     return (
         <div className='container'>
-            <div className="card border-0 shadow-lg" style={{ width: "18rem" }}>
+            <div className="card border-0 shadow-lg">
                 <span className="percent">{condition}</span>
                 <div className="card-image ">
                     <img src={img} className="img-fluid service-car-img" alt='' />

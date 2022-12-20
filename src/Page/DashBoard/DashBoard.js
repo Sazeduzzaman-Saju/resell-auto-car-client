@@ -10,7 +10,7 @@ import { FcEmptyTrash } from "react-icons/fc";
 const DashBoard = () => {
     useWebTitle('Dashboard Home')
     const { user } = useContext(AuthContext);
-    const url = `https://autocar-two.vercel.app/wishlist?email=${user?.email}`;
+    const url = `https://resell-autocar-server.vercel.app/wishlist?email=${user?.email}`;
     const { data: wishlist = [], refetch } = useQuery({
         queryKey: ['wishList', user?.email],
         queryFn: async () => {
@@ -24,7 +24,7 @@ const DashBoard = () => {
         }
     })
     const handleRemove = id => {
-        fetch(`https://autocar-two.vercel.app/wishlist/${id}`, {
+        fetch(`https://resell-autocar-server.vercel.app/wishlist/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('access_token')}`

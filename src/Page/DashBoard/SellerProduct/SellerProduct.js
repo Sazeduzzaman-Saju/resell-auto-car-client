@@ -8,7 +8,7 @@ const SellerProduct = () => {
     useWebTitle('My Product')
     const { user } = useContext(AuthContext)
 
-    const url = `https://autocar-two.vercel.app/cars/seller/${user?.email}`;
+    const url = `https://resell-autocar-server.vercel.app/cars/seller/${user?.email}`;
     const { data: sellerPost = [], refetch } = useQuery(
         ['sellerpost', user?.email],
         async () => {
@@ -20,7 +20,7 @@ const SellerProduct = () => {
     })
 
     const handleRemove = id => {
-        fetch(`https://autocar-two.vercel.app/seller/${id}`, {
+        fetch(`https://resell-autocar-server.vercel.app/seller/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('access_token')}`

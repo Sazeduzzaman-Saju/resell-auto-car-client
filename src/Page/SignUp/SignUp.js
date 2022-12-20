@@ -36,7 +36,7 @@ const SignUp = () => {
                 console.log(image);
                 const formData = new FormData();
                 formData.append('image', image)
-                const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imgHostBB}`;
+                const url = `https://api.imgbb.com/1/upload?&key=${imgHostBB}`;
                 console.log(url)
                 fetch(url, {
                     method: 'POST',
@@ -68,7 +68,7 @@ const SignUp = () => {
     const saveUser = (name, email, photURL, role) => {
 
         const user = { name, email, photURL, role };
-        fetch('https://autocar-two.vercel.app/users', {
+        fetch('https://resell-autocar-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

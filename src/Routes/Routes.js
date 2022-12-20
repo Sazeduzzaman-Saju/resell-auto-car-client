@@ -56,22 +56,22 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/carsCategories',
-                element: <SideHome></SideHome>
+                element: <PrivateRoutes><SideHome></SideHome></PrivateRoutes>
             },
             {
                 path: '/carsCategories/category/:id',
-                element: <CategoryData></CategoryData>,
-                loader: ({ params }) => fetch(`https://autocar-two.vercel.app/category/${params.id}`)
+                element: <PrivateRoutes><CategoryData></CategoryData></PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://resell-autocar-server.vercel.app/category/${params.id}`)
             },
             {
                 path: '/carsCategories/carDetails/:id',
-                element: <CarDetails></CarDetails>,
-                loader: ({ params }) => fetch(`https://autocar-two.vercel.app/cars/${params.id}`)
+                element: <PrivateRoutes><CarDetails></CarDetails></PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://resell-autocar-server.vercel.app/cars/${params.id}`)
             },
             {
                 path: '/carsCategories/add-to-cart/:id',
                 element: <PrivateRoutes><AddToCart></AddToCart></PrivateRoutes>,
-                loader: ({ params }) => fetch(`https://autocar-two.vercel.app/cars/${params.id}`)
+                loader: ({ params }) => fetch(`https://resell-autocar-server.vercel.app/cars/${params.id}`)
             }
         ]
     },
@@ -110,7 +110,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`https://autocar-two.vercel.app/wishlist/${params.id}`)
+                loader: ({ params }) => fetch(`https://resell-autocar-server.vercel.app/wishlist/${params.id}`)
             }
         ]
     }

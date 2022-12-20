@@ -43,7 +43,7 @@ const Header = () => {
             })
             .catch(err => console.error(err))
     }
-    const url = `https://autocar-two.vercel.app/wishlist?email=${user?.email}`;
+    const url = `https://resell-autocar-server.vercel.app/wishlist?email=${user?.email}`;
     const { data: wisListItems = [], refetch } = useQuery(
         ['wishList', user?.email],
         async () => {
@@ -58,7 +58,7 @@ const Header = () => {
         refetchInterval: 1000,
     })
     const handleRemove = id => {
-        fetch(`https://autocar-two.vercel.app/wishlist/${id}`, {
+        fetch(`https://resell-autocar-server.vercel.app/wishlist/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('access_token')}`

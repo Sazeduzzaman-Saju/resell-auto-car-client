@@ -6,7 +6,7 @@ import './HotCollection.css'
 const AdvertisedItems = () => {
     const [category, setCategory] = useState([]);
     console.log(category)
-    const url = 'https://autocar-two.vercel.app/carCategories'
+    const url = 'https://resell-autocar-server.vercel.app/carCategories'
     useEffect(() => {
         axios.get(url)
             .then((response) => {
@@ -17,9 +17,9 @@ const AdvertisedItems = () => {
     return (
         <div>
             <div className='container mt-5'>
-                <div className='border-start'>
+                <div className=''>
                     <div className='text-start mt-5 ms-2' data-aos="fade-left" data-aos-duration="3000">
-                        <h1 className="main-block__title primary-color "><strong>Brand Collection</strong></h1>
+                        <h1 className='my-5'>Brand Collection</h1>
                     </div>
                 </div>
             </div>

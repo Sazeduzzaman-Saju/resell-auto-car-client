@@ -90,8 +90,18 @@
   background: var(--primary-color);
   transform: rotate(360deg);
 }
+.seller_car_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
 @media only screen and (max-width: 600px) {
   .hot-collection {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+  .seller_car_container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 10px;

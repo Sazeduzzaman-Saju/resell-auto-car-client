@@ -9,6 +9,7 @@ const ReportModal = ({ show, handleClose, singleService }) => {
     const { user } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { _id, title, img, description, price, } = singleService;
+    console.log(_id);
 
 
 
@@ -25,9 +26,8 @@ const ReportModal = ({ show, handleClose, singleService }) => {
             userComment: data.comments,
             userPhoto: user?.photoURL,
         }
-
         console.log(reportPost)
-        fetch(`https:autocar-two.vercel.app/reportedpost`, {
+        fetch(`https://resell-autocar-server.vercel.app/reportedpost`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -35,9 +35,8 @@ const ReportModal = ({ show, handleClose, singleService }) => {
             body: JSON.stringify(reportPost)
         }).then(res => res.json())
             .then(data => {
-                console.log(data)
-                reset();
                 toast.success('Your Report Have Been Submitted')
+                reset();
 
             })
             .catch(error => console.error(error))

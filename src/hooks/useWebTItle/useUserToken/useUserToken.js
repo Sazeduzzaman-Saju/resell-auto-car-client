@@ -5,7 +5,7 @@ const useUserToken = (email) => {
 
     useEffect(() => {
         if (email) {
-            fetch(`https://autocar-two.vercel.app/jwt?email=${email}`)
+            fetch(`https://resell-autocar-server.vercel.app/jwt?email=${email}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.access_token) {

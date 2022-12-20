@@ -10,7 +10,7 @@ import PrimaryButton from '../../../comps/PrimaryButton/PrimaryButton';
 
 const AllProduct = () => {
 
-    const url = 'https://autocar-two.vercel.app/cars';
+    const url = 'https://resell-autocar-server.vercel.app/cars';
     const { data: productData = [] } = useQuery({
         queryKey: ['cars'],
         queryFn: async () => {
@@ -43,7 +43,7 @@ const AllProduct = () => {
                 items: 3,
             },
             1000: {
-                items: 3,
+                items: 4,
             }
         },
     };
@@ -63,7 +63,7 @@ const AllProduct = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className=''>
                 <OwlCarousel className="slider-items owl-carousel" {...options}>
                     {productData.map(post =>
                         <div key={post._id} className='item mt-5 mb-5  rounded'>

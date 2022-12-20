@@ -14,7 +14,7 @@ const CarDetails = () => {
     useWebTitle('Car Details Page')
     const singleService = useLoaderData();
     const { user } = useContext(AuthContext)
-    const { slug, position, title, img, description, price, gear_type, condition, mileage, wheel, model_id, negotiable_price } = singleService;
+    const { _id, slug, position, title, img, description, price, gear_type, condition, mileage, wheel, model_id, negotiable_price } = singleService;
 
     const [show, setShow] = useState(false);
 
@@ -32,7 +32,7 @@ const CarDetails = () => {
                         <img src={img} className="img-fluid" alt="" />
                         <p className="mt-2 mb-5">{description}</p>
                         <div className='d-flex justify-content-between'>
-                            {/* <button onClick={handleReport} className="btn btn-primary">Report</button> */}
+                            <p>{_id}</p>
                             <Button variant="m-btn" onClick={() => handleShow(true)}>
                                 <span><FcCancel></FcCancel></span> <span className='mt-2'>Report Post</span>
                             </Button>

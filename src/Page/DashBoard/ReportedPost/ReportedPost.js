@@ -6,7 +6,7 @@ import './ReportedPost.css';
 
 const ReportedPost = () => {
     useWebTitle('Reported Post')
-    const url = `https://autocar-two.vercel.app/reportedpost`;
+    const url = `https://resell-autocar-server.vercel.app/reportedpost`;
     const { data: reportedPost = [], refetch } = useQuery(
 
         ['reported-post'],
@@ -25,7 +25,7 @@ const ReportedPost = () => {
 
 
     const handleRemove = id => {
-        fetch(`https://autocar-two.vercel.app/reportedpost/${id}`, {
+        fetch(`https://resell-autocar-server.vercel.app/cars/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('access_token')}`
@@ -33,7 +33,26 @@ const ReportedPost = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.modifiedCount > 0) {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                    toast.success('Reported Post  Deleted')
+                    refetch('')
+
+                }
+            })
+    }
+
+    const reportHandleRemove = id => {
+        fetch(`https://resell-autocar-server.vercel.app/reportedpost/${id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access_token')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
                     toast.success('Reported Post  Deleted')
                     refetch('')
                 }
@@ -56,9 +75,14 @@ const ReportedPost = () => {
                                 <div className="ms-3">
                                     <p className="p-0 m-0 fw-bold">{report.userName}</p>
                                     <p className="p-0 m-0">{report.userComment}</p>
+                                    <p className="p-0 m-0">{report.reportPostId}</p>
                                 </div>
                             </div>
-                            <button onClick={() => handleRemove(report._id)} className="btns">Remove Now</button>
+                            <div className='d-flex justify-content-center align-items-center'>
+                                <button onClick={() => handleRemove(report.reportPostId)} className="btns">Permanent Remove</button>
+                                <button onClick={() => reportHandleRemove(report._id)} className="btns ms-3">Remove Report</button>
+                            </div>
+
                         </div>
                     </div>)
                 }

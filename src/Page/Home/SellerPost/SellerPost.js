@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import SellerSinglePost from './SellerSinglePost';
+import './SellerPost'
 
 const SellerPost = () => {
-    const url = 'https://autocar-two.vercel.app/seller/post';
+    const url = 'https://resell-autocar-server.vercel.app/seller/post';
     const { data: sellerPost = [] } = useQuery(
         ['sellerpost'],
         async () => {
@@ -21,19 +22,19 @@ const SellerPost = () => {
     console.log(sellerPost.length)
 
     return (
-        <div>
-            <div className='container mt-5'>
-                <div className='border-start'>
-                    <div className='text-end mt-5 ms-2' data-aos="fade-left" data-aos-duration="3000">
-                        <h1 className="main-block__title primary-color "><strong>Seller Collection</strong></h1>
-                    </div>
+        <div className='container'>
+            <div className='mt-5'>
+                <div className=''>
+                    <h1 className='text-end my-5'>Seller Collection</h1>
                 </div>
             </div>
-            <div className="car-container" data-aos="fade-up-left" data-aos-duration="1500">
-                {sellerPost.map(post => <SellerSinglePost
-                    key={post._id}
-                    post={post}
-                ></SellerSinglePost>)}
+            <div className="">
+                <div className="seller_car_container" data-aos="fade-up-left" data-aos-duration="1500">
+                    {sellerPost.map(post => <SellerSinglePost
+                        key={post._id}
+                        post={post}
+                    ></SellerSinglePost>)}
+                </div>
             </div>
         </div>
     );

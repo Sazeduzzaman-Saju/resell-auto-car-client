@@ -38,7 +38,10 @@ body::-webkit-scrollbar-thumb {
 .primary-color {
   color: #210124;
 }
-
+.owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next, .owl-carousel button.owl-dot {
+  background: #210124 !important;
+  color: white !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

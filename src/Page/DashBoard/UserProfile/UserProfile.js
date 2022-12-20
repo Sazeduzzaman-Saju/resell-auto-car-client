@@ -14,7 +14,7 @@ const UserProfile = () => {
     console.log(user.metadata.creationTime)
     const [date, setDate] = useState(new Date());
 
-    const url = `https://autocar-two.vercel.app/users/${user?.email}`;
+    const url = `https://resell-autocar-server.vercel.app/users/${user?.email}`;
     const { data: singleUser = [] } = useQuery(
         ['user', user?.email],
         async () => {
@@ -35,15 +35,10 @@ const UserProfile = () => {
                         singleUser.map(users =>
                             <div className="row mt-5">
                                 <div className="col-lg-3 mt-5 d-flex ">
-
-                                    <a href="/users" className="pull-right">
-
-                                        <img title="profile image img-fluid" className="img-circle rounded img-responsive" src={users.photURL} alt='' />
-                                    </a>
+                                    <img title="profile image img-fluid" className="img-circle rounded img-responsive" src={users.photURL} alt='' />
                                     {users?.useVerify !== 'verified' ? <></> : <><span className="primary-color" >
                                         <FcApproval className='fs-2' ></FcApproval>
                                     </span></>}
-
                                 </div>
                                 <div className="col-lg-5">
                                     <div className="section ">

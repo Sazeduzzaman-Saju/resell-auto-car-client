@@ -12,7 +12,7 @@ const Seller = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch(`https://autocar-two.vercel.app/user/seller`);
+            const res = await fetch(`https://resell-autocar-server.vercel.app/user/seller`);
             const data = await res.json();
             return data;
         }
@@ -22,7 +22,7 @@ const Seller = () => {
 
 
     const handleAdmin = id => {
-        fetch(`https://autocar-two.vercel.app/users/admin/${id}`, {
+        fetch(`https://resell-autocar-server.vercel.app/users/admin/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('access_token')}`
@@ -40,7 +40,7 @@ const Seller = () => {
 
 
     const handleVerified = id => {
-        fetch(`https://autocar-two.vercel.app/users/admin/verified/${id}`, {
+        fetch(`https://resell-autocar-server.vercel.app/users/admin/verified/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('access_token')}`
@@ -56,7 +56,7 @@ const Seller = () => {
     }
 
     const handleRemove = id => {
-        fetch(`https://autocar-two.vercel.app/users/${id}`, {
+        fetch(`https://resell-autocar-server.vercel.app/users/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('access_token')}`

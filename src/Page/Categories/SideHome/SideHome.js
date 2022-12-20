@@ -6,7 +6,7 @@ import SingleCategoryData from './SingleCategoryData';
 const SideHome = () => {
 
     useWebTitle('CateGory Home')
-    const url = 'https://autocar-two.vercel.app/cars';
+    const url = 'https://resell-autocar-server.vercel.app/cars';
     const { data: cars = [] } = useQuery({
         queryKey: ['cars'],
         queryFn: async () => {

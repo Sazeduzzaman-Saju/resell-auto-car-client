@@ -9,8 +9,6 @@ const SingleCategoryData = ({ car }) => {
     const { _id, title, img, price } = car;
 
     const handleWishListSubmit = () => {
-
-
         const addWishList = {
             wishListIid: _id,
             product_img: img,
@@ -19,7 +17,7 @@ const SingleCategoryData = ({ car }) => {
             email: user?.email
         }
         console.log('addWishList', addWishList)
-        fetch(`https://autocar-two.vercel.app/wishlist`, {
+        fetch(`https://resell-autocar-server.vercel.app/wishlist`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -41,7 +39,7 @@ const SingleCategoryData = ({ car }) => {
                 </div>
                 <div className="card-inner">
                     <span className=''>{car.slug.toUpperCase()}</span>
-                    <h5 className="mb-0">{car.title.slice(0, 20)}</h5>
+                    <h5 className="mb-0">{car.title.slice(0, 15)}</h5>
                     <div className="price mt-3 ">
                         <span>${car.price}</span>
                         <sup className='primary-bg text-white rounded-pill p-1 ms-1 shadow-lg text-end'>{car.negotiable_price ? <>Fixed</> : <>NEG</>}</sup>
